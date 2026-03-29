@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prodigi Innovative Labs | AI Automation & SaaS Development</title>
+<meta name="description" content="Prodigi Innovative Labs — AI automation, SaaS development, and digital transformation solutions for modern businesses."/>
+<meta name="keywords" content="AI automation services, SaaS development company, web application development, digital transformation solutions, AI software company"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --void: #02020a;
+  --deep: #05050f;
+  --surface: #080818;
+  --card: #0d0d20;
+  --border: #16163a;
+  --blue: #3d6bff;
+  --violet: #8b5cf6;
+  --cyan: #06b6d4;
+  --teal: #00e5aa;
+  --text: #dde0f5;
+  --muted: #5a5a8a;
+  --soft: #9090c0;
+  --white: #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--text);font-family:'Figtree',sans-serif;font-size:16px;line-height:1.72;overflow-x:hidden;}
+
+#space-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 6%;background:rgba(2,2,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(61,107,255,0.12);}
+.logo{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.3rem;color:var(--white);letter-spacing:-0.5px;text-decoration:none;}
+.logo em{font-style:normal;color:var(--blue);}
+.nav-links{display:flex;gap:34px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.875rem;font-weight:500;font-family:'Outfit',sans-serif;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--violet));color:var(--white)!important;padding:9px 22px;border-radius:8px;font-weight:600!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;}
+
+/* SPACE SECTION */
+.space-section{position:relative;overflow:hidden;}
+.space-section .nebula{position:absolute;inset:0;pointer-events:none;z-index:1;}
+.space-section>*{position:relative;z-index:2;}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:130px 6% 90px;gap:60px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,107,255,0.1);border:1px solid rgba(61,107,255,0.28);border-radius:100px;padding:6px 18px;font-size:0.7rem;font-weight:600;color:#7da4ff;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:26px;font-family:'Space Mono',monospace;animation:fadeUp 0.5s ease both;}
+.badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulseAnim 2s infinite;}
+@keyframes pulseAnim{0%,100%{box-shadow:0 0 0 0 rgba(0,229,170,0.6)}60%{box-shadow:0 0 0 6px rgba(0,229,170,0)}}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(2.5rem,5.2vw,4.5rem);font-weight:800;line-height:1.06;letter-spacing:-2px;color:var(--white);margin-bottom:22px;animation:fadeUp 0.6s 0.08s ease both;}
+h1 .grad{background:linear-gradient(135deg,#60a5fa 0%,#a78bfa 45%,#34d399 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:1.06rem;color:var(--soft);max-width:500px;margin-bottom:38px;font-weight:400;line-height:1.75;animation:fadeUp 0.6s 0.16s ease both;}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.6s 0.24s ease both;}
+.btn{padding:13px 28px;border-radius:9px;font-size:0.92rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--violet));color:var(--white);border:none;box-shadow:0 0 32px rgba(61,107,255,0.38);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 54px rgba(61,107,255,0.55);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:rgba(61,107,255,0.5);color:#7da4ff;}
+.hero-stats{display:flex;gap:36px;margin-top:56px;animation:fadeUp 0.6s 0.32s ease both;}
+.stat-num{font-family:'Outfit',sans-serif;font-size:2.1rem;font-weight:800;color:var(--white);line-height:1;}
+.stat-num em{font-style:normal;color:var(--blue);}
+.stat-label{font-size:0.75rem;color:var(--muted);margin-top:4px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;animation:fadeUp 0.8s 0.2s ease both;z-index:2;}
+
+/* TRUST */
+#trust{padding:36px 6%;background:rgba(8,8,24,0.9);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.trust-tagline{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:700;color:var(--white);}
+.trust-tagline em{font-style:normal;color:var(--blue);}
+.trust-pills{display:flex;gap:10px;flex-wrap:wrap;}
+.pill{border:1px solid var(--border);border-radius:100px;padding:5px 16px;font-size:0.78rem;color:var(--muted);font-weight:500;background:var(--card);font-family:'Outfit',sans-serif;}
+
+/* SECTIONS */
+section{padding:100px 6%;position:relative;}
+.section-tag{font-family:'Space Mono',monospace;font-size:0.68rem;color:#7da4ff;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;display:block;}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:800;color:var(--white);letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px;}
+.section-desc{color:var(--soft);max-width:540px;font-size:1rem;margin-bottom:56px;}
+
+/* SERVICES */
+#services{background:rgba(5,5,15,0.97);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:18px;}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:34px 30px;transition:all 0.3s;position:relative;overflow:hidden;}
+.service-card:hover{border-color:rgba(61,107,255,0.35);transform:translateY(-4px);box-shadow:0 24px 64px rgba(0,0,0,0.5);}
+.s-top-line{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.service-card:hover .s-top-line{transform:scaleX(1);}
+.service-icon{width:50px;height:50px;border-radius:12px;background:rgba(61,107,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:18px;border:1px solid rgba(61,107,255,0.15);}
+.service-title{font-family:'Outfit',sans-serif;font-size:1.06rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+.service-desc{color:var(--muted);font-size:0.875rem;margin-bottom:18px;}
+.service-list{list-style:none;}
+.service-list li{color:var(--soft);font-size:0.83rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;gap:8px;}
+.service-list li::before{content:'›';color:var(--blue);font-size:1rem;font-weight:700;}
+
+/* PRODUCTS */
+#products{background:rgba(8,8,20,0.97);}
+.products-row{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:44px 38px;position:relative;overflow:hidden;}
+.product-card.featured{border-color:rgba(61,107,255,0.3);background:linear-gradient(145deg,rgba(61,107,255,0.06) 0%,var(--card) 60%);}
+.product-badge{display:inline-block;background:linear-gradient(135deg,var(--blue),var(--violet));color:white;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:5px;margin-bottom:18px;font-family:'Outfit',sans-serif;}
+.product-name{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:var(--white);letter-spacing:-1px;margin-bottom:12px;}
+.product-name .ac{color:var(--blue);}
+.product-desc{color:var(--soft);font-size:0.9rem;margin-bottom:26px;line-height:1.7;}
+.product-features{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.product-features li{display:flex;align-items:center;gap:10px;color:var(--text);font-size:0.875rem;}
+.feat-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+.product-tagline{margin-top:26px;font-style:italic;color:var(--blue);font-size:0.85rem;}
+.g-one-card{grid-column:1 / -1;}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+.pillar{background:rgba(61,107,255,0.05);border:1px solid rgba(61,107,255,0.14);border-radius:12px;padding:18px;}
+.pillar-num{font-family:'Space Mono',monospace;color:var(--blue);font-size:0.68rem;margin-bottom:6px;}
+.pillar-title{font-family:'Outfit',sans-serif;font-weight:700;color:var(--white);font-size:0.9rem;margin-bottom:5px;}
+.pillar-text{color:var(--muted);font-size:0.8rem;}
+.tech-table{width:100%;border-collapse:collapse;margin-top:26px;}
+.tech-table th{text-align:left;font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--blue);letter-spacing:1px;padding:10px 14px;border-bottom:1px solid var(--border);}
+.tech-table td{padding:11px 14px;color:var(--muted);font-size:0.83rem;border-bottom:1px solid rgba(255,255,255,0.03);}
+.tech-table td:first-child{color:var(--text);font-weight:500;}
+.tech-table tr:last-child td{border-bottom:none;}
+
+/* WHY */
+#why{background:rgba(5,5,15,0.96);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:border-color 0.3s,transform 0.3s;}
+.why-card:hover{border-color:rgba(61,107,255,0.3);transform:translateY(-3px);}
+.why-icon{font-size:1.9rem;margin-bottom:12px;}
+.why-title{font-family:'Outfit',sans-serif;font-weight:700;color:var(--white);margin-bottom:7px;font-size:1rem;}
+.why-text{color:var(--muted);font-size:0.85rem;}
+
+/* INDUSTRIES */
+#industries{background:rgba(8,8,20,0.96);}
+.industries-wrap{display:flex;flex-wrap:wrap;gap:12px;}
+.industry-chip{background:var(--card);border:1px solid var(--border);border-radius:100px;padding:11px 22px;color:var(--text);font-size:0.875rem;font-weight:500;display:flex;align-items:center;gap:8px;transition:all 0.25s;font-family:'Outfit',sans-serif;}
+.industry-chip:hover{border-color:var(--blue);color:#7da4ff;background:rgba(61,107,255,0.08);}
+
+/* CTA */
+#cta{background:rgba(5,5,15,0.96);text-align:center;padding:110px 6%;}
+.cta-box{max-width:700px;margin:0 auto;background:linear-gradient(145deg,rgba(61,107,255,0.1),rgba(139,92,246,0.07));border:1px solid rgba(61,107,255,0.22);border-radius:24px;padding:64px 48px;position:relative;overflow:hidden;}
+.cta-box::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:220px;background:radial-gradient(ellipse,rgba(61,107,255,0.18),transparent 70%);pointer-events:none;}
+.cta-box h2{margin-bottom:14px;}
+.cta-box p{color:var(--soft);margin-bottom:34px;}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* ABOUT */
+#about{background:rgba(8,8,20,0.97);}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.about-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;}
+.about-logo-big{font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:800;color:var(--white);letter-spacing:-2px;}
+.about-logo-big em{font-style:normal;color:var(--blue);}
+.about-mission{font-size:0.88rem;color:var(--soft);font-style:italic;border-left:3px solid var(--blue);padding-left:14px;}
+.about-mission-statement{font-size:1.05rem;color:var(--text);border-left:3px solid var(--teal);padding-left:18px;margin:18px 0;font-style:italic;font-weight:300;}
+.about-text{color:var(--soft);font-size:0.96rem;}
+
+/* FOOTER */
+footer{background:rgba(5,5,12,0.99);border-top:1px solid var(--border);padding:56px 6% 36px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:54px;margin-bottom:44px;}
+.footer-brand .logo{display:inline-block;margin-bottom:12px;font-size:1.35rem;}
+.footer-desc{color:var(--muted);font-size:0.85rem;max-width:280px;}
+.footer-contact{margin-top:18px;display:flex;flex-direction:column;gap:8px;}
+.footer-contact a{color:var(--muted);text-decoration:none;font-size:0.83rem;transition:color 0.2s;}
+.footer-contact a:hover{color:var(--blue);}
+.footer-col h4{font-family:'Outfit',sans-serif;font-weight:700;color:var(--white);font-size:0.85rem;margin-bottom:18px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{color:var(--muted);font-size:0.78rem;}
+.footer-seo{display:flex;flex-wrap:wrap;gap:7px;}
+.seo-tag{font-size:0.68rem;color:rgba(90,90,138,0.5);background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);padding:3px 10px;border-radius:4px;}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;padding-top:110px;}
+  .products-row{grid-template-columns:1fr;}
+  .g-one-card{grid-column:auto;}
+  .about-inner{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .cta-box{padding:36px 22px;}
+  .footer-top{grid-template-columns:1fr;}
+  .pillars{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="space-canvas"></canvas>
+
+<nav>
+  <a href="#hero" class="logo">Prodigi<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:prodigiinovativelabs@gmail.com" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="space-section">
+  <canvas class="nebula" id="neb0"></canvas>
+  <div class="hero-left">
+    <div class="hero-badge"><div class="badge-pulse"></div>AI · Automation · Intelligence</div>
+    <h1>Transform Your<br>Business with<br><span class="grad">AI & Automation</span></h1>
+    <p class="hero-sub">We build intelligent software, automate workflows, and design scalable digital products that help businesses grow faster and smarter.</p>
+    <div class="hero-buttons">
+      <a href="mailto:prodigiinovativelabs@gmail.com" class="btn btn-primary">🚀 Get Started</a>
+      <a href="mailto:prodigiinovativelabs@gmail.com" class="btn btn-ghost">💬 Talk to Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">AI<em>+</em></div><div class="stat-label">Powered Solutions</div></div>
+      <div class="stat-item"><div class="stat-num">5<em>+</em></div><div class="stat-label">Core Services</div></div>
+      <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Flagship Products</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <canvas id="hero-ai" width="500" height="500"></canvas>
+  </div>
+</section>
+
+<div id="trust" class="space-section" style="position:relative;overflow:hidden;">
+  <canvas class="nebula" id="neb1" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></canvas>
+  <div class="trust-inner" style="position:relative;z-index:2;">
+    <div class="trust-tagline">Innovation<em>.</em> Automation<em>.</em> Intelligence<em>.</em></div>
+    <div class="trust-pills">
+      <div class="pill">AI-First Approach</div>
+      <div class="pill">SaaS Experts</div>
+      <div class="pill">End-to-End Dev</div>
+      <div class="pill">Enterprise Ready</div>
+    </div>
+  </div>
+</div>
+
+<div class="space-section" style="padding:60px 6%;text-align:center;background:rgba(5,5,14,0.97);">
+  <canvas class="nebula" id="neb2"></canvas>
+  <p style="color:var(--soft);max-width:680px;margin:0 auto;font-size:1.06rem;font-weight:400;line-height:1.82;position:relative;z-index:2;">
+    Prodigi Innovative Labs is a next-generation technology company focused on <strong style="color:var(--text);font-weight:600;">AI automation</strong>, SaaS platforms, and <strong style="color:var(--text);font-weight:600;">digital transformation solutions</strong> for modern businesses.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services" class="space-section">
+  <canvas class="nebula" id="neb3"></canvas>
+  <span class="section-tag reveal">// What We Build</span>
+  <h2 class="reveal">Our Services</h2>
+  <p class="section-desc reveal">From AI automation to full-stack SaaS — we engineer the tools your business needs to compete in the digital age.</p>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="s-top-line"></div><div class="service-icon">🤖</div><div class="service-title">AI Automation</div><p class="service-desc">Automate repetitive tasks and workflows using intelligent AI solutions.</p><ul class="service-list"><li>Business workflow automation</li><li>AI-powered chatbots</li><li>Data processing & analytics</li><li>Custom AI integrations</li></ul></div>
+    <div class="service-card reveal"><div class="s-top-line"></div><div class="service-icon">☁️</div><div class="service-title">SaaS Product Development</div><p class="service-desc">Scalable, high-performance SaaS platforms tailored to your needs.</p><ul class="service-list"><li>Multi-tenant SaaS architecture</li><li>Subscription-based platforms</li><li>Dashboard & analytics systems</li><li>Cloud-native solutions</li></ul></div>
+    <div class="service-card reveal"><div class="s-top-line"></div><div class="service-icon">📱</div><div class="service-title">Web & Mobile Development</div><p class="service-desc">Modern, responsive, high-performing applications built to scale.</p><ul class="service-list"><li>Custom web apps (Angular, React)</li><li>Mobile apps (React Native)</li><li>Backend APIs (Node.js, Python)</li><li>Microservices architecture</li></ul></div>
+    <div class="service-card reveal"><div class="s-top-line"></div><div class="service-icon">🎨</div><div class="service-title">Website Design & Development</div><p class="service-desc">Beautiful, conversion-focused websites built for results.</p><ul class="service-list"><li>Business websites</li><li>E-commerce platforms</li><li>Landing pages</li><li>UI/UX design</li></ul></div>
+    <div class="service-card reveal"><div class="s-top-line"></div><div class="service-icon">📈</div><div class="service-title">Digital Marketing & Growth</div><p class="service-desc">Scale your business with data-driven strategies that convert.</p><ul class="service-list"><li>SEO optimization</li><li>Performance marketing</li><li>Social media growth</li><li>Conversion optimization</li></ul></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section id="products" class="space-section">
+  <canvas class="nebula" id="neb4"></canvas>
+  <span class="section-tag reveal">// Our Products</span>
+  <h2 class="reveal">Flagship Products</h2>
+  <p class="section-desc reveal">Intelligent platforms engineered to transform how businesses operate and grow.</p>
+  <div class="products-row">
+    <div class="product-card featured reveal">
+      <div class="product-badge">🔥 Flagship</div>
+      <div class="product-name"><span class="ac">Prodigi</span>One</div>
+      <p class="product-desc">An all-in-one platform combining every tool modern businesses need to manage, engage, and grow — powered by AI insights.</p>
+      <ul class="product-features">
+        <li><div class="feat-dot"></div>Business management suite</li>
+        <li><div class="feat-dot"></div>Customer engagement tools</li>
+        <li><div class="feat-dot"></div>Chat & communication hub</li>
+        <li><div class="feat-dot"></div>AI-driven insights & analytics</li>
+      </ul>
+      <p class="product-tagline">Designed for small businesses, vendors, and modern entrepreneurs.</p>
+    </div>
+    <div class="product-card g-one-card reveal">
+      <div class="product-badge" style="background:linear-gradient(135deg,#8b5cf6,#06b6d4)">⚡ AI Engine</div>
+      <div class="product-name"><span class="ac">G</span>-One</div>
+      <p class="product-desc">An industry-agnostic AI automation engine that integrates seamlessly into any architecture. It understands context, orchestrates complex workflows, and evolves with your enterprise.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-num">01 //</div><div class="pillar-title">Architectural Versatility</div><div class="pillar-text">Microservices, Monolithic, or Serverless — plugs in via robust API layer.</div></div>
+        <div class="pillar"><div class="pillar-num">02 //</div><div class="pillar-title">Autonomous Decisions</div><div class="pillar-text">Predicts failures, optimizes resources, routes data intelligently.</div></div>
+        <div class="pillar"><div class="pillar-num">03 //</div><div class="pillar-title">Enterprise Security</div><div class="pillar-text">E2E encryption, on-premise options, and RBAC compliance built-in.</div></div>
+        <div class="pillar"><div class="pillar-num">04 //</div><div class="pillar-title">Proactive Intelligence</div><div class="pillar-text">Identifies efficiency gaps before they become bottlenecks.</div></div>
+      </div>
+      <table class="tech-table" style="margin-top:28px">
+        <thead><tr><th>Feature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Smart Connectors</td><td>Pre-built adapters for CRM, ERP, and legacy databases</td></tr>
+          <tr><td>Natural Language Interface</td><td>Non-technical staff can query system health or trigger workflows</td></tr>
+          <tr><td>Self-Healing Logic</td><td>Automatically identifies and fixes common architectural glitches</td></tr>
+          <tr><td>Scalable Neural Core</td><td>Handles millions of requests without latency degradation</td></tr>
+        </tbody>
+      </table>
+      <p class="product-tagline" style="margin-top:26px">Most automation tools are reactive. G-One is proactive.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY US -->
+<section id="why" class="space-section">
+  <canvas class="nebula" id="neb5"></canvas>
+  <span class="section-tag reveal">// Why Prodigi</span>
+  <h2 class="reveal">Built Different</h2>
+  <p class="section-desc reveal">We're not just a dev shop. We're an AI-first product company that ships results.</p>
+  <div class="why-grid">
+    <div class="why-card reveal"><div class="why-icon">⚡</div><div class="why-title">Fast & Scalable</div><div class="why-text">Rapid delivery with architectures designed to scale as your business grows.</div></div>
+    <div class="why-card reveal"><div class="why-icon">🤖</div><div class="why-title">AI-First Approach</div><div class="why-text">Every solution is built with intelligence at its core, not as an afterthought.</div></div>
+    <div class="why-card reveal"><div class="why-icon">🧩</div><div class="why-title">End-to-End</div><div class="why-text">From idea to deployment and beyond — we own the full lifecycle.</div></div>
+    <div class="why-card reveal"><div class="why-icon">📈</div><div class="why-title">Business-Focused</div><div class="why-text">We build for outcomes, not just outputs. ROI is the goal.</div></div>
+    <div class="why-card reveal"><div class="why-icon">💡</div><div class="why-title">Innovation-Driven</div><div class="why-text">We stay ahead of the curve so you don't have to.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INDUSTRIES -->
+<section id="industries" class="space-section">
+  <canvas class="nebula" id="neb6"></canvas>
+  <span class="section-tag reveal">// Sectors</span>
+  <h2 class="reveal">Industries We Serve</h2>
+  <p class="section-desc reveal">Sector-agnostic by design — our solutions adapt to your industry's unique demands.</p>
+  <div class="industries-wrap reveal">
+    <div class="industry-chip"><span>🛒</span>Retail & E-commerce</div>
+    <div class="industry-chip"><span>🏥</span>Healthcare & Clinics</div>
+    <div class="industry-chip"><span>🚚</span>Logistics & Operations</div>
+    <div class="industry-chip"><span>🚀</span>Startups & SaaS</div>
+    <div class="industry-chip"><span>🏢</span>Small & Medium Businesses</div>
+    <div class="industry-chip"><span>🏭</span>Manufacturing</div>
+    <div class="industry-chip"><span>📊</span>Finance & Fintech</div>
+    <div class="industry-chip"><span>🎓</span>EdTech</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="space-section">
+  <canvas class="nebula" id="neb7"></canvas>
+  <div class="cta-box reveal">
+    <h2>Let's Build Something<br>Powerful Together</h2>
+    <p>Whether you're looking to automate your business or build the next big product — we're here to help you engineer the future.</p>
+    <div class="cta-buttons">
+      <a href="mailto:prodigiinovativelabs@gmail.com" class="btn btn-primary">📩 Contact Us</a>
+      <a href="mailto:prodigiinovativelabs@gmail.com" class="btn btn-ghost">📞 Schedule a Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="space-section">
+  <canvas class="nebula" id="neb8"></canvas>
+  <span class="section-tag reveal">// Our Story</span>
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-logo-big">Prodigi<em>.</em></div>
+      <p class="about-mission">"Build Smart. Scale Faster."</p>
+      <p style="color:var(--muted);font-size:0.83rem;margin-top:4px;">AI Software Company · Next-Generation Tech</p>
+      <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;">
+        <div class="pill">AI Automation</div>
+        <div class="pill">SaaS Dev</div>
+        <div class="pill">Product Design</div>
+        <div class="pill">Digital Growth</div>
+      </div>
+      <canvas id="about-mini" width="260" height="110" style="margin-top:18px;opacity:0.65;"></canvas>
+    </div>
+    <div class="reveal">
+      <h2>About Prodigi Innovative Labs</h2>
+      <p class="about-text" style="margin-bottom:14px;">We are a team of developers, designers, and innovators building the future of AI-powered software.</p>
+      <div class="about-mission-statement">Our mission is to simplify technology and make powerful tools accessible for businesses of all sizes.</div>
+      <p class="about-text">From intelligent automation engines to all-in-one business platforms, we craft solutions that aren't just functional — they're transformational.</p>
+      <div style="margin-top:26px;"><a href="mailto:prodigiinovativelabs@gmail.com" class="btn btn-primary">Start a Conversation →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">Prodigi<em style="font-style:normal;color:var(--blue)">.</em></a>
+      <p class="footer-desc">Next-generation AI automation, SaaS development, and digital transformation for modern businesses.</p>
+      <div class="footer-contact">
+        <a href="mailto:prodigiinovativelabs@gmail.com">📩 prodigiinovativelabs@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">AI Automation</a></li>
+        <li><a href="#services">SaaS Development</a></li>
+        <li><a href="#services">Web & Mobile Apps</a></li>
+        <li><a href="#services">Website Design</a></li>
+        <li><a href="#services">Digital Marketing</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Prodigi Innovative Labs. All rights reserved.</p>
+    <div class="footer-seo">
+      <span class="seo-tag">AI automation services</span>
+      <span class="seo-tag">SaaS development company</span>
+      <span class="seo-tag">Web application development</span>
+      <span class="seo-tag">Digital transformation solutions</span>
+      <span class="seo-tag">AI software company</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── GLOBAL STARFIELD ── */
+(function(){
+  const c=document.getElementById('space-canvas'),ctx=c.getContext('2d');
+  let W,H,stars=[],nebulas=[];
+  function resize(){
+    W=c.width=window.innerWidth;
+    H=c.height=Math.max(document.body.scrollHeight,window.innerHeight);
+  }
+  function init(){
+    stars=Array.from({length:300},()=>({
+      x:Math.random()*W,y:Math.random()*H,
+      r:Math.random()*1.3+0.2,a:Math.random()*0.8+0.1,
+      phase:Math.random()*Math.PI*2,speed:Math.random()*0.4+0.1
+    }));
+    const cols=['rgba(61,107,255,','rgba(139,92,246,','rgba(6,182,212,','rgba(0,229,170,','rgba(80,40,160,'];
+    nebulas=Array.from({length:8},()=>({
+      x:Math.random()*W,y:Math.random()*H,
+      rx:200+Math.random()*300,ry:120+Math.random()*200,
+      col:cols[Math.floor(Math.random()*cols.length)],
+      a:0.018+Math.random()*0.032
+    }));
+  }
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    nebulas.forEach(n=>{
+      const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.rx);
+      g.addColorStop(0,n.col+n.a+')');g.addColorStop(1,n.col+'0)');
+      ctx.save();ctx.scale(1,n.ry/n.rx);
+      ctx.fillStyle=g;ctx.beginPath();
+      ctx.arc(n.x,n.y*(n.rx/n.ry),n.rx,0,Math.PI*2);ctx.fill();ctx.restore();
+    });
+    stars.forEach(s=>{
+      const a=s.a*(0.5+0.5*Math.sin(t*s.speed+s.phase));
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(200,210,255,${a})`;ctx.fill();
+    });
+    t+=0.01;requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();draw();
+})();
+
+/* ── SECTION NEBULAS ── */
+function sectionNebula(id,c1,c2,c3){
+  const el=document.getElementById(id);if(!el)return;
+  const par=el.parentElement;
+  function setup(){
+    el.width=par.offsetWidth;el.height=par.offsetHeight;
+  }
+  setup();
+  const ctx=el.getContext('2d');
+  const stars=Array.from({length:60},()=>({
+    x:Math.random()*el.width,y:Math.random()*el.height,
+    r:Math.random()*1+0.2,a:Math.random()*0.6+0.1,
+    phase:Math.random()*Math.PI*2,speed:Math.random()*0.4+0.15
+  }));
+  const clouds=[
+    {x:el.width*0.85,y:el.height*0.15,rx:220,ry:140,col:c1,a:0.07},
+    {x:el.width*0.1, y:el.height*0.75,rx:180,ry:120,col:c2,a:0.05},
+    {x:el.width*0.55,y:el.height*0.9, rx:160,ry:100,col:c3,a:0.04}
+  ];
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,el.width,el.height);
+    clouds.forEach(c=>{
+      const g=ctx.createRadialGradient(c.x,c.y,0,c.x,c.y,c.rx);
+      g.addColorStop(0,c.col.replace('A',c.a));g.addColorStop(1,c.col.replace('A','0'));
+      ctx.save();ctx.scale(1,c.ry/c.rx);
+      ctx.fillStyle=g;ctx.beginPath();
+      ctx.arc(c.x,c.y*(c.rx/c.ry),c.rx,0,Math.PI*2);ctx.fill();ctx.restore();
+    });
+    stars.forEach(s=>{
+      const a=s.a*(0.4+0.6*Math.sin(t*s.speed+s.phase));
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(190,200,255,${a})`;ctx.fill();
+    });
+    t+=0.012;requestAnimationFrame(draw);
+  }
+  draw();
+}
+const NC='rgba(61,107,255,A)',NV='rgba(139,92,246,A)',NCY='rgba(6,182,212,A)',NT='rgba(0,229,170,A)',NP='rgba(99,50,180,A)';
+sectionNebula('neb0',NC,NV,NT);
+sectionNebula('neb1',NC,NT,NCY);
+sectionNebula('neb2',NV,NC,NT);
+sectionNebula('neb3',NP,NC,NCY);
+sectionNebula('neb4',NCY,NV,NC);
+sectionNebula('neb5',NC,NT,NP);
+sectionNebula('neb6',NV,NC,NCY);
+sectionNebula('neb7',NC,NV,NT);
+sectionNebula('neb8',NCY,NC,NV);
+
+/* ── HERO AI NEURAL NET ── */
+(function(){
+  const canvas=document.getElementById('hero-ai');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height,CX=W/2,CY=H/2;
+
+  // Build layered neural network
+  const layerDefs=[{n:1,x:0.1},{n:4,x:0.25},{n:7,x:0.42},{n:7,x:0.58},{n:4,x:0.75},{n:1,x:0.9}];
+  const nodes=[];
+  layerDefs.forEach((l,li)=>{
+    for(let i=0;i<l.n;i++){
+      const spread=(l.n-1)*52;
+      nodes.push({
+        x:l.x*W, y:CY-spread/2+i*52+(Math.random()-0.5)*10,
+        layer:li, pulse:Math.random()*Math.PI*2,
+        speed:0.015+Math.random()*0.018, baseR:4.5+Math.random()*4
+      });
+    }
+  });
+  const conns=[];
+  nodes.forEach((a,i)=>nodes.forEach((b,j)=>{
+    if(b.layer===a.layer+1&&Math.random()>0.3)
+      conns.push({i,j,phase:Math.random()*Math.PI*2,speed:0.01+Math.random()*0.012});
+  }));
+
+  // Orbiting particles
+  const orbiters=Array.from({length:6},(_, k)=>({
+    angle:(k/6)*Math.PI*2, r:90+k*32, speed:0.004+k*0.0015, size:2.5+Math.random()*2
+  }));
+
+  // Shooting stars
+  const shoots=Array.from({length:3},(_, k)=>({progress:Math.random(),speed:0.003+k*0.001}));
+
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    // Outer ambient glow
+    const amb=ctx.createRadialGradient(CX,CY,60,CX,CY,230);
+    amb.addColorStop(0,'rgba(61,107,255,0.06)');
+    amb.addColorStop(0.6,'rgba(139,92,246,0.03)');
+    amb.addColorStop(1,'transparent');
+    ctx.fillStyle=amb;ctx.fillRect(0,0,W,H);
+
+    // Connections
+    conns.forEach(c=>{
+      const a=nodes[c.i],b=nodes[c.j];
+      const p=(Math.sin(t*c.speed*55+c.phase)+1)/2;
+      const al=0.05+p*0.18;
+      const g=ctx.createLinearGradient(a.x,a.y,b.x,b.y);
+      g.addColorStop(0,`rgba(61,107,255,${al})`);
+      g.addColorStop(0.5,`rgba(139,92,246,${al+0.08})`);
+      g.addColorStop(1,`rgba(6,182,212,${al})`);
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=g;ctx.lineWidth=0.8+p*1.3;ctx.stroke();
+      // traveling packet
+      if(p>0.75){
+        const frac=((t*0.25+c.phase)%1+1)%1;
+        const px=a.x+(b.x-a.x)*frac,py=a.y+(b.y-a.y)*frac;
+        ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);
+        ctx.fillStyle='rgba(0,229,170,0.92)';ctx.fill();
+      }
+    });
+
+    // Nodes
+    nodes.forEach(n=>{
+      const p=(Math.sin(t*n.speed*55+n.pulse)+1)/2;
+      const r=n.baseR+p*3.5;
+      // outer glow
+      const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,r*4.5);
+      g.addColorStop(0,`rgba(61,107,255,${0.22+p*0.28})`);
+      g.addColorStop(1,'transparent');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(n.x,n.y,r*4.5,0,Math.PI*2);ctx.fill();
+      // core
+      const core=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,r);
+      const isEdge=n.layer===0||n.layer===5;
+      core.addColorStop(0,'#ffffff');
+      core.addColorStop(0.35,isEdge?'#00e5aa':'#93c5fd');
+      core.addColorStop(1,'#3d6bff');
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fillStyle=core;ctx.fill();
+      ctx.beginPath();ctx.arc(n.x,n.y,r+2.5,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(93,147,255,${0.15+p*0.3})`;ctx.lineWidth=1;ctx.stroke();
+    });
+
+    // Orbiters
+    orbiters.forEach(o=>{
+      o.angle+=o.speed;
+      const ox=CX+Math.cos(o.angle)*o.r, oy=CY+Math.sin(o.angle)*o.r*0.38;
+      const og=ctx.createRadialGradient(ox,oy,0,ox,oy,o.size*2);
+      og.addColorStop(0,'rgba(0,229,170,0.9)');og.addColorStop(1,'transparent');
+      ctx.fillStyle=og;ctx.beginPath();ctx.arc(ox,oy,o.size*2,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(ox,oy,o.size*0.6,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,0.95)';ctx.fill();
+    });
+
+    // Central eye / core
+    const eye=ctx.createRadialGradient(CX,CY,0,CX,CY,24);
+    eye.addColorStop(0,'rgba(255,255,255,0.95)');
+    eye.addColorStop(0.4,'rgba(0,229,170,0.8)');
+    eye.addColorStop(1,'rgba(61,107,255,0)');
+    ctx.beginPath();ctx.arc(CX,CY,24,0,Math.PI*2);ctx.fillStyle=eye;ctx.fill();
+    // pulsing ring
+    const rp=(Math.sin(t*1.2)+1)/2;
+    ctx.beginPath();ctx.arc(CX,CY,32+rp*8,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(0,229,170,${0.3+rp*0.3})`;ctx.lineWidth=1.5;ctx.stroke();
+
+    t+=0.016;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── ABOUT MINI NET ── */
+(function(){
+  const c=document.getElementById('about-mini');if(!c)return;
+  const ctx=c.getContext('2d');
+  const W=c.width,H=c.height;
+  const nodes=Array.from({length:14},(_,i)=>({
+    x:18+(i%7)*36,y:i<7?25:85,
+    r:3.5,pulse:Math.random()*Math.PI*2,speed:0.02+Math.random()*0.01
+  }));
+  const conns=[];
+  for(let i=0;i<7;i++)for(let j=7;j<14;j++)if(Math.random()>0.38)conns.push([i,j]);
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    conns.forEach(([a,b])=>{
+      const p=(Math.sin(t*2+a)+1)/2;
+      ctx.beginPath();ctx.moveTo(nodes[a].x,nodes[a].y);ctx.lineTo(nodes[b].x,nodes[b].y);
+      ctx.strokeStyle=`rgba(61,107,255,${0.07+p*0.18})`;ctx.lineWidth=1;ctx.stroke();
+    });
+    nodes.forEach(n=>{
+      const p=(Math.sin(t*n.speed*50+n.pulse)+1)/2;
+      const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r+p*2);
+      g.addColorStop(0,'rgba(93,147,255,0.9)');g.addColorStop(1,'transparent');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(n.x,n.y,n.r+p*2,0,Math.PI*2);ctx.fill();
+    });
+    t+=0.016;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── SCROLL REVEAL ── */
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08});
+reveals.forEach((r,i)=>{r.style.transitionDelay=`${(i%6)*0.055}s`;obs.observe(r);});
+</script>
+</body>
+</html>
