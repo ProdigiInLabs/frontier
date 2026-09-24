@@ -1,0 +1,33 @@
+/* Small, shared utilities. Layout lives in components; these are primitives. */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: var(--space-2);
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-action);
+  color: var(--color-action-contrast);
+  border-radius: var(--radius-sm);
+  font-weight: var(--weight-medium);
+  transform: translateY(-200%);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+.prose { color: var(--color-ink-2); max-width: 68ch; }
+.prose > * + * { margin-top: var(--space-4); }
+.prose a { color: var(--color-ink); }
+.prose strong { color: var(--color-ink); font-weight: var(--weight-semibold); }
+.prose ul { padding-left: var(--space-5); }
+.prose li + li { margin-top: var(--space-2); }
+
+.text-muted { color: var(--color-muted); }
+.mono { font-family: var(--font-mono); }

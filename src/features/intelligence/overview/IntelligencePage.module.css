@@ -1,0 +1,11 @@
+.heroNote { margin-top: var(--space-6); color: var(--color-ink-2); max-width: 38rem; }
+.principles { list-style: none; display: grid; gap: var(--space-8); }
+@media (min-width: 56rem) { .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.principle { display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-5); border-top: 1px solid var(--color-ink); }
+.principleIndex { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-intelligence); }
+.principleTitle { font-size: var(--text-xl); }
+.principleText { color: var(--color-muted); }
+.journeyActions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-10); }
+@media (max-width: 39.99rem) { .journeyActions > * { flex: 1 1 100%; } }
+.arch { display: grid; gap: var(--space-10); }
+@media (min-width: 72rem) { .arch { grid-template-columns: 1fr 1.1fr; align-items: start; } .arch > header { position: sticky; top: calc(var(--header-h) + var(--space-8)); } }

@@ -1,0 +1,19 @@
+/* Shared layout for pillar overview pages (Product, Digital). */
+.groups { display: grid; gap: var(--space-4); }
+@media (min-width: 40rem) { .groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .groups { grid-template-columns: repeat(4, minmax(0, 1fr)); } .groups[data-cols='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.group { padding-top: var(--space-5); border-top: 2px solid var(--pillar, var(--color-ink)); }
+.group[data-pillar='product'] { --pillar: var(--color-product); }
+.group[data-pillar='digital'] { --pillar: var(--color-digital); }
+.group[data-pillar='intelligence'] { --pillar: var(--color-intelligence); }
+.groupTitle { font-family: var(--font-mono); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: var(--tracking-label); font-weight: var(--weight-medium); }
+.groupText { margin-top: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+.groupList { list-style: none; margin-top: var(--space-4); display: grid; gap: var(--space-2); }
+.groupList li { font-size: var(--text-lg); font-weight: var(--weight-medium); letter-spacing: -0.01em; }
+.groupLink { display: inline-flex; margin-top: var(--space-5); font-size: var(--text-sm); font-weight: var(--weight-medium); }
+
+.split { display: grid; gap: var(--space-10); }
+@media (min-width: 72rem) { .split { grid-template-columns: 1.1fr 1fr; align-items: start; } .split > header { margin-bottom: 0; } }
+.chipsTitle { font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--color-muted); font-weight: var(--weight-medium); margin-bottom: var(--space-4); }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.chips li { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-line); border-radius: var(--radius-sm); background: var(--color-surface); font-size: var(--text-sm); }

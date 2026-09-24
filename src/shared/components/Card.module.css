@@ -1,0 +1,60 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  height: 100%;
+}
+.outline { border: var(--border-width) solid var(--color-line); }
+.plain { background: transparent; padding: 0; }
+.filled { background: var(--color-bg-sunken); }
+
+.card[data-pillar]::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: var(--space-6);
+  width: var(--space-8);
+  height: 2px;
+  background: var(--pillar-color);
+}
+.card[data-pillar='product'] { --pillar-color: var(--color-product); }
+.card[data-pillar='digital'] { --pillar-color: var(--color-digital); }
+.card[data-pillar='intelligence'] { --pillar-color: var(--color-intelligence); }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.title { font-size: var(--text-lg); letter-spacing: var(--tracking-tight); }
+.body { color: var(--color-muted); font-size: var(--text-sm); line-height: var(--leading-body); }
+.body > * + * { margin-top: var(--space-3); }
+.footer { margin-top: auto; padding-top: var(--space-3); }
+
+.link { text-decoration: none; }
+.link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.link:focus-visible { outline: none; }
+.interactive:has(.link:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+.interactive { transition: border-color var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out); }
+.interactive:hover { border-color: var(--color-line-strong); box-shadow: var(--shadow-md); }
+
+.cta {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+.cta svg { transition: transform var(--duration-base) var(--ease-out); }
+.interactive:hover .cta svg { transform: translateX(3px); }

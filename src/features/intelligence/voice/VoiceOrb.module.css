@@ -1,0 +1,83 @@
+.orb {
+  --orb-accent: var(--color-intelligence);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(13rem, 62vw);
+  aspect-ratio: 1;
+}
+.orb[data-state='error'] { --orb-accent: var(--color-danger); }
+
+.ring {
+  position: absolute;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+}
+.ring:nth-child(1) { inset: 0; }
+.ring:nth-child(2) { inset: 13%; border-color: var(--color-line-strong); }
+.ring:nth-child(3) { inset: 26%; border-color: var(--color-line-strong); }
+
+.arc {
+  position: absolute;
+  inset: 13%;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.core {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+  width: 40%;
+  aspect-ratio: 1;
+  border: var(--border-width) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-raised);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+.bar {
+  width: 5%;
+  height: 12%;
+  border-radius: var(--radius-pill);
+  background: var(--color-faint);
+  transition: background-color var(--duration-base) var(--ease-out), height var(--duration-base) var(--ease-out);
+}
+.bar:nth-child(2), .bar:nth-child(6) { height: 20%; }
+.bar:nth-child(3), .bar:nth-child(5) { height: 28%; }
+.bar:nth-child(4) { height: 34%; }
+
+/* Listening: bars move with the (simulated) voice; outer ring breathes. */
+.orb[data-state='listening'] .core { border-color: var(--orb-accent); }
+.orb[data-state='listening'] .bar { background: var(--orb-accent); animation: level 0.9s var(--ease-in-out) infinite; }
+.orb[data-state='listening'] .ring:nth-child(1) { border-color: color-mix(in srgb, var(--orb-accent) 45%, transparent); animation: breathe 1.8s var(--ease-in-out) infinite; }
+.orb[data-state='listening'] .ring:nth-child(3) { border-color: var(--orb-accent); }
+
+/* Processing: a single arc turns; bars rest. */
+.orb[data-state='processing'] .arc { opacity: 1; border-top-color: var(--orb-accent); animation: spin 1.1s linear infinite; }
+.orb[data-state='processing'] .bar { background: var(--color-muted); height: 10%; }
+
+/* Responding: slower cadence, rings ripple outward. */
+.orb[data-state='responding'] .core { border-color: var(--orb-accent); }
+.orb[data-state='responding'] .bar { background: var(--color-ink); animation: level 1.4s var(--ease-in-out) infinite; }
+.orb[data-state='responding'] .ring:nth-child(2) { border-color: var(--orb-accent); animation: ripple 2.2s var(--ease-out) infinite; }
+
+.orb[data-state='error'] .core, .orb[data-state='error'] .ring:nth-child(3) { border-color: var(--orb-accent); }
+.orb[data-state='error'] .bar { background: var(--orb-accent); height: 8%; }
+
+.bar:nth-child(1) { animation-delay: -0.2s; }
+.bar:nth-child(2) { animation-delay: -0.5s; }
+.bar:nth-child(3) { animation-delay: -0.1s; }
+.bar:nth-child(4) { animation-delay: -0.35s; }
+.bar:nth-child(5) { animation-delay: -0.6s; }
+.bar:nth-child(6) { animation-delay: -0.25s; }
+.bar:nth-child(7) { animation-delay: -0.45s; }
+
+@keyframes level { 0%, 100% { transform: scaleY(0.6); } 50% { transform: scaleY(1.9); } }
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ripple { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.18); opacity: 0; } }

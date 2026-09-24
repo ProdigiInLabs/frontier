@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/demo/ai-chat", "destination": "/intelligence/chat", "permanent": true },
+    { "source": "/demo/ai-agent", "destination": "/intelligence/agents", "permanent": true },
+    { "source": "/demo/ai-search", "destination": "/intelligence/search", "permanent": true },
+    { "source": "/demo/ai-voice", "destination": "/intelligence/voice", "permanent": true },
+    { "source": "/services", "destination": "/solutions", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ]
+}

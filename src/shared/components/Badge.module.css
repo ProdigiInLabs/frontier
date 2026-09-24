@@ -1,0 +1,22 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.125rem var(--space-2);
+  border-radius: var(--radius-xs);
+  border: var(--border-width) solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+.demo { color: var(--color-warning); border-color: color-mix(in srgb, var(--color-warning) 40%, transparent); }
+.success { color: var(--color-success); border-color: color-mix(in srgb, var(--color-success) 40%, transparent); }
+.danger { color: var(--color-danger); border-color: color-mix(in srgb, var(--color-danger) 40%, transparent); }
+.product { color: var(--color-product); background: var(--color-product-soft); border-color: transparent; }
+.digital { color: var(--color-digital); background: var(--color-digital-soft); border-color: transparent; }
+.intelligence { color: var(--color-intelligence); background: var(--color-intelligence-soft); border-color: transparent; }

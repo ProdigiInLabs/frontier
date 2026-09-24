@@ -1,0 +1,21 @@
+.banner {
+  position: fixed;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 40rem;
+  padding: var(--space-4) var(--space-5);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  animation: up var(--duration-slow) var(--ease-out);
+}
+.text { flex: 1 1 18rem; font-size: var(--text-sm); color: var(--color-ink-2); }
+.actions { display: flex; gap: var(--space-2); }
+@keyframes up { from { opacity: 0; transform: translateY(8px); } }

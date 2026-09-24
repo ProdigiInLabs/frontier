@@ -1,0 +1,17 @@
+.md { color: var(--color-ink-2); line-height: var(--leading-body); overflow-wrap: anywhere; }
+.md > * + * { margin-top: var(--space-3); }
+.md strong { color: var(--color-ink); font-weight: var(--weight-semibold); }
+.md ul, .md ol { padding-left: var(--space-5); }
+.md ul { list-style: none; padding-left: var(--space-4); }
+.md ul li { position: relative; }
+.md ul li::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-4));
+  top: 0.72em;
+  width: 0.375rem;
+  height: 1px;
+  background: var(--color-intelligence);
+}
+.md li + li { margin-top: var(--space-1); }
+.md ol li::marker { color: var(--color-muted); font-family: var(--font-mono); font-size: var(--text-xs); }
