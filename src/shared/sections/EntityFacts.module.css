@@ -1,0 +1,5 @@
+.facts { margin: 0; border-top: 1px solid var(--color-line); }
+.row { display: grid; gap: var(--space-1); padding: var(--space-4) 0; border-bottom: 1px solid var(--color-line); }
+@media (min-width: 40rem) { .row { grid-template-columns: 9rem 1fr; gap: var(--space-6); } }
+.row dt { font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--color-muted); padding-top: 0.2rem; }
+.row dd { margin: 0; color: var(--color-ink); }

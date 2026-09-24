@@ -1,0 +1,8 @@
+.list { list-style: none; display: grid; gap: 0; border-top: 1px solid var(--color-line); }
+@media (min-width: 56rem) { .list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-12); } }
+@media (min-width: 72rem) { .list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.item { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-8) 0; border-bottom: 1px solid var(--color-line); }
+.role { font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--color-muted); }
+.question { font-size: var(--text-xl); letter-spacing: var(--tracking-tight); line-height: 1.25; }
+.answer { color: var(--color-ink-2); font-size: var(--text-sm); }
+.links { margin-top: auto; padding-top: var(--space-2); display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); font-size: var(--text-sm); font-weight: var(--weight-medium); }

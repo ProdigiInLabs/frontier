@@ -1,0 +1,7 @@
+.nav { margin-bottom: var(--space-8); }
+.list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; font-size: var(--text-xs); font-family: var(--font-mono); letter-spacing: 0.02em; color: var(--color-muted); }
+.item { display: inline-flex; align-items: center; gap: var(--space-2); }
+.item + .item::before { content: '/'; color: var(--color-faint); }
+.item a { color: var(--color-muted); text-decoration: none; }
+.item a:hover { color: var(--color-ink); text-decoration: underline; }
+.item [aria-current] { color: var(--color-ink); }

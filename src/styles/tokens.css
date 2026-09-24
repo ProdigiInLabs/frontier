@@ -1,0 +1,202 @@
+/*
+ * Prodigi design tokens.
+ * Every colour, space, radius, shadow, type size and duration used by the
+ * UI comes from here. Components must not introduce raw values.
+ */
+:root {
+  /* ---- Typography ---- */
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --text-2xs: 0.6875rem;  /* 11 */
+  --text-xs: 0.75rem;     /* 12 */
+  --text-sm: 0.875rem;    /* 14 */
+  --text-md: 1rem;        /* 16 */
+  --text-lg: 1.125rem;    /* 18 */
+  --text-xl: 1.375rem;    /* 22 */
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.3rem + 2.2vw, 2.875rem);
+  --text-4xl: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
+  --text-display: clamp(2.6rem, 1.3rem + 5.6vw, 5.75rem);
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.08em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --section-y: clamp(4rem, 2.5rem + 6vw, 8.5rem);
+
+  /* ---- Containers ---- */
+  --container-max: 76rem;
+  --container-narrow: 48rem;
+  --container-wide: 90rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+
+  /* ---- Radius (deliberately restrained) ---- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* ---- Borders ---- */
+  --border-width: 1px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 420ms;
+  --duration-flow: 2400ms;
+
+  /* ---- Layers ---- */
+  --z-base: 1;
+  --z-sticky: 50;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  /* ---- Header ---- */
+  --header-h: 4rem;
+
+  /* ---- Colour: light (default marketing) ---- */
+  color-scheme: light;
+  --color-bg: #f5f4ef;
+  --color-bg-sunken: #edebe4;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-ink: #0e0f12;
+  --color-ink-2: #33363d;
+  --color-muted: #5f636c;
+  --color-faint: #6a6e77;
+  --color-line: #dedcd3;
+  --color-line-strong: #c5c2b7;
+  --color-grid: rgb(14 15 18 / 0.05);
+
+  --color-product: #b13c0b;
+  --color-product-soft: #fbe9df;
+  --color-digital: #0f766e;
+  --color-digital-soft: #dff3ef;
+  --color-intelligence: #4f46e5;
+  --color-intelligence-soft: #e7e6fd;
+
+  --color-accent: var(--color-intelligence);
+  --color-accent-contrast: #ffffff;
+  --color-action: var(--color-ink);
+  --color-action-contrast: #ffffff;
+  --color-action-hover: #2a2c33;
+
+  --color-success: #15803d;
+  --color-warning: #a16207;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fdecec;
+
+  --color-focus: #4f46e5;
+  --color-overlay: rgb(14 15 18 / 0.45);
+
+  --shadow-sm: 0 1px 2px rgb(14 15 18 / 0.06);
+  --shadow-md: 0 1px 2px rgb(14 15 18 / 0.05), 0 8px 24px -12px rgb(14 15 18 / 0.18);
+  --shadow-lg: 0 2px 4px rgb(14 15 18 / 0.04), 0 24px 48px -20px rgb(14 15 18 / 0.28);
+}
+
+/* ---- Colour: dark (system preference for marketing; always for the app shell) ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-bg: #0b0c0f;
+    --color-bg-sunken: #08090b;
+    --color-surface: #121419;
+    --color-surface-raised: #171a20;
+    --color-ink: #eceef2;
+    --color-ink-2: #c7cad1;
+    --color-muted: #9a9ea8;
+    --color-faint: #858994;
+    --color-line: #23262e;
+    --color-line-strong: #343842;
+    --color-grid: rgb(236 238 242 / 0.045);
+    --color-product: #ff8a5c;
+    --color-product-soft: #2a1710;
+    --color-digital: #34c6b4;
+    --color-digital-soft: #0e2522;
+    --color-intelligence: #938bff;
+    --color-intelligence-soft: #1c1a3a;
+    --color-action: #eceef2;
+    --color-action-contrast: #0b0c0f;
+    --color-action-hover: #ffffff;
+    --color-accent-contrast: #0b0c0f;
+    --color-success: #4ade80;
+    --color-warning: #facc15;
+    --color-danger: #f87171;
+    --color-danger-soft: #2a1414;
+    --color-focus: #a5a0ff;
+    --color-overlay: rgb(0 0 0 / 0.6);
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+    --shadow-lg: 0 24px 48px -20px rgb(0 0 0 / 0.7);
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #0b0c0f;
+  --color-bg-sunken: #08090b;
+  --color-surface: #121419;
+  --color-surface-raised: #171a20;
+  --color-ink: #eceef2;
+  --color-ink-2: #c7cad1;
+  --color-muted: #9a9ea8;
+  --color-faint: #858994;
+  --color-line: #23262e;
+  --color-line-strong: #343842;
+  --color-grid: rgb(236 238 242 / 0.045);
+  --color-product: #ff8a5c;
+  --color-product-soft: #2a1710;
+  --color-digital: #34c6b4;
+  --color-digital-soft: #0e2522;
+  --color-intelligence: #938bff;
+  --color-intelligence-soft: #1c1a3a;
+  --color-action: #eceef2;
+  --color-action-contrast: #0b0c0f;
+  --color-action-hover: #ffffff;
+  --color-accent-contrast: #0b0c0f;
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-danger: #f87171;
+  --color-danger-soft: #2a1414;
+  --color-focus: #a5a0ff;
+  --color-overlay: rgb(0 0 0 / 0.6);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 24px 48px -20px rgb(0 0 0 / 0.7);
+}
+
+/*
+ * Responsive breakpoints (documented here; CSS custom properties cannot be
+ * used inside @media, so components use these literal values):
+ *   sm  40rem  (640px)   large phones / small tablets
+ *   md  56rem  (896px)   tablets
+ *   lg  72rem  (1152px)  desktop
+ */

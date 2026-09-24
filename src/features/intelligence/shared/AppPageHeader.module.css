@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+  padding-bottom: var(--space-8);
+  border-bottom: var(--border-width) solid var(--color-line);
+  margin-bottom: var(--space-8);
+}
+.text { min-width: 0; flex: 1 1 28rem; }
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.dot { width: 0.4375rem; height: 0.4375rem; border-radius: var(--radius-pill); background: var(--color-intelligence); }
+.sep { color: var(--color-faint); }
+.section { color: var(--color-ink-2); }
+
+.titleRow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.title {
+  font-size: var(--text-3xl);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.08;
+}
+.badges { display: inline-flex; flex-wrap: wrap; gap: var(--space-2); }
+.lead { margin-top: var(--space-4); max-width: 44rem; font-size: var(--text-lg); color: var(--color-muted); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+/* Compact: toolbar-like header for the full-height chat workspace. */
+.header[data-compact='true'] {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.header[data-compact='true'] .text { flex: 1 1 auto; }
+.header[data-compact='true'] .titleRow { gap: var(--space-1) var(--space-3); }
+.header[data-compact='true'] .actions { flex: none; flex-wrap: nowrap; gap: var(--space-1); }
+.header[data-compact='true'] .eyebrow { display: none; }
+.header[data-compact='true'] .title { font-size: var(--text-lg); letter-spacing: var(--tracking-tight); line-height: var(--leading-snug); }
+.header[data-compact='true'] .lead { margin-top: 0; font-size: var(--text-xs); }
+
+@media (min-width: 56rem) {
+  .header[data-compact='true'] { padding: var(--space-4) 0; }
+  .header[data-compact='true'] .eyebrow { display: flex; margin-bottom: var(--space-1); }
+  .header[data-compact='true'] .title { font-size: var(--text-xl); }
+  .header[data-compact='true'] .lead { font-size: var(--text-sm); }
+}

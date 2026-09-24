@@ -1,0 +1,7 @@
+.toc { margin-top: var(--space-8); }
+.toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.toc a { display: inline-flex; padding: var(--space-2) var(--space-4); border: 1px solid var(--color-line-strong); border-radius: var(--radius-sm); font-size: var(--text-sm); text-decoration: none; background: var(--color-surface); }
+.toc a:hover { border-color: var(--color-ink); }
+.group { display: grid; gap: var(--space-8); }
+@media (min-width: 72rem) { .group { grid-template-columns: 20rem 1fr; gap: var(--space-16); } .groupTitle { position: sticky; top: calc(var(--header-h) + var(--space-8)); align-self: start; } }
+.groupTitle { font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); }

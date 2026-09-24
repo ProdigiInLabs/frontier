@@ -1,0 +1,11 @@
+.frame { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-line); border-radius: var(--radius-lg); background: var(--color-bg-sunken); }
+@media (min-width: 40rem) { .frame { grid-template-columns: 1fr 1.1fr; } }
+.doc, .assistant { padding: var(--space-5); border-radius: var(--radius-md); background: var(--color-surface); border: 1px solid var(--color-line); display: grid; gap: var(--space-3); align-content: start; }
+.kicker { font-family: var(--font-mono); font-size: var(--text-2xs); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-muted); }
+.line { display: block; height: 0.5rem; border-radius: 2px; background: var(--color-line); }
+.highlight { background: var(--color-intelligence-soft); box-shadow: inset 2px 0 0 var(--color-intelligence); }
+.bubble { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--color-bg-sunken); font-size: var(--text-sm); justify-self: end; max-width: 90%; }
+.reply { justify-self: start; background: transparent; border: 1px solid var(--color-line); }
+.cite { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--color-intelligence); }
+.chips { display: flex; gap: var(--space-2); }
+.chips span { padding: var(--space-1) var(--space-3); border: 1px solid var(--color-line); border-radius: var(--radius-sm); font-size: var(--text-xs); color: var(--color-ink-2); }

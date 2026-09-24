@@ -1,0 +1,132 @@
+/*
+ * Full-height workspace: header bar, scrolling thread, docked composer.
+ * The explanatory "About" section sits below the fold in normal page flow.
+ */
+.app {
+  display: flex;
+  flex-direction: column;
+  /* Viewport minus the mobile top bar. */
+  height: calc(100dvh - 3.5rem);
+  min-height: 22rem;
+}
+@media (min-width: 56rem) {
+  .app { height: 100dvh; }
+}
+
+.bar { flex: none; padding-inline: var(--gutter); border-bottom: var(--border-width) solid var(--color-line); }
+.barInner { max-width: 52rem; margin-inline: auto; }
+.aboutLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 2.25rem;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  text-decoration: none;
+}
+.aboutLink:hover { color: var(--color-ink); background: var(--color-surface); }
+.aboutLink span { display: none; }
+/* Icon-only on phones; the label stays available to assistive tech. */
+.newButton { padding-inline: var(--space-2); }
+.newButton > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (min-width: 40rem) {
+  .aboutLink span { display: inline; }
+  .newButton { padding-inline: var(--space-3); }
+  .newButton > span { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
+}
+
+.viewport { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.scroll {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable both-edges;
+}
+.thread {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: calc(48rem + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: var(--space-6) var(--gutter) var(--space-8);
+}
+
+.messages { list-style: none; display: grid; gap: var(--space-8); }
+.error { margin-top: var(--space-6); }
+
+/* ---- Empty state ---- */
+.empty { margin-block: auto; display: grid; gap: var(--space-4); padding-block: var(--space-6); }
+.emptyTitle { font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); max-width: 30rem; }
+.emptyLead { color: var(--color-muted); max-width: 34rem; }
+.suggestions {
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-4);
+}
+@media (min-width: 40rem) {
+  .suggestions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.suggestion {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  height: 100%;
+  min-height: 3.25rem;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  text-align: left;
+  transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+.suggestion svg { flex: none; margin-top: 3px; color: var(--color-faint); }
+.suggestion:hover:not(:disabled) { border-color: var(--color-line-strong); background: var(--color-surface-raised); color: var(--color-ink); }
+.suggestion:hover:not(:disabled) svg { color: var(--color-intelligence); }
+.suggestion:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.jump {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-3);
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.25rem;
+  padding: 0 var(--space-3);
+  border: var(--border-width) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-md);
+  color: var(--color-ink);
+  font-size: var(--text-xs);
+}
+
+/* ---- Docked composer ---- */
+.dock {
+  flex: none;
+  padding: var(--space-3) var(--gutter) calc(var(--space-3) + env(safe-area-inset-bottom));
+  border-top: var(--border-width) solid var(--color-line);
+  background: var(--color-bg);
+}
+.dockInner { display: grid; gap: var(--space-2); max-width: 48rem; margin-inline: auto; }
+@media (min-width: 56rem) {
+  .dock { padding-top: var(--space-4); padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom)); border-top: 0; }
+}
+
+.aboutWrap {
+  max-width: calc(64rem + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: 0 var(--gutter) var(--space-16);
+}

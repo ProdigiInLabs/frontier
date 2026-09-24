@@ -1,0 +1,26 @@
+.svg { width: 100%; height: auto; overflow: visible; }
+.grid { stroke: var(--color-grid); stroke-width: 1; }
+.rail { stroke: var(--color-line); stroke-width: 1; stroke-dasharray: 2 4; }
+.link { fill: none; stroke: var(--color-line-strong); stroke-width: 1; }
+.pulse {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 10 190;
+  stroke-dashoffset: 200;
+  animation: travel 3.2s linear infinite;
+}
+.pulse[data-row='0'] { stroke: var(--color-product); }
+.pulse[data-row='1'] { stroke: var(--color-intelligence); }
+
+.row[data-pillar='product'] { --pillar: var(--color-product); }
+.row[data-pillar='digital'] { --pillar: var(--color-digital); }
+.row[data-pillar='intelligence'] { --pillar: var(--color-intelligence); }
+.rowLabel { font-family: var(--font-sans); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; fill: var(--color-ink); }
+.rowVerb { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--color-muted); }
+.node { fill: var(--color-surface); stroke: var(--color-line-strong); stroke-width: 1; }
+.dot { fill: var(--pillar); }
+.nodeText { font-family: var(--font-mono); font-size: 10px; fill: var(--color-ink-2); }
+
+@keyframes travel { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .pulse { display: none; } }

@@ -1,0 +1,110 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: var(--border-width) solid transparent;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+.header[data-scrolled='true'] { border-bottom-color: var(--color-line); }
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: var(--header-h);
+  max-width: calc(var(--container-wide) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.brand { display: inline-flex; text-decoration: none; padding: var(--space-2) 0; }
+
+.nav { display: none; flex: 1; }
+.menu { display: flex; align-items: center; gap: var(--space-1); list-style: none; }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+}
+.link:hover, .link[aria-expanded='true'] { color: var(--color-ink); background: var(--color-bg-sunken); }
+.link[aria-current='page'], .link[data-active] { color: var(--color-ink); }
+.chevron { transition: transform var(--duration-base) var(--ease-out); }
+.link[aria-expanded='true'] .chevron { transform: rotate(180deg); }
+
+.end { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; }
+.cta { display: none; }
+.burger {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+@media (min-width: 40rem) { .cta { display: inline-flex; } }
+@media (min-width: 66rem) {
+  .nav { display: block; }
+  .burger { display: none; }
+}
+
+/* ---- Dropdown panel ---- */
+.dropdown { position: static; }
+.panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--color-surface);
+  border-top: var(--border-width) solid var(--color-line);
+  border-bottom: var(--border-width) solid var(--color-line);
+  box-shadow: var(--shadow-lg);
+  animation: drop var(--duration-base) var(--ease-out);
+}
+.panelInner {
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: var(--space-12);
+  max-width: calc(var(--container-wide) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter) var(--space-10);
+}
+.panelIntro { display: flex; flex-direction: column; gap: var(--space-2); padding-right: var(--space-8); border-right: var(--border-width) solid var(--color-line); }
+.panelEyebrow { font-family: var(--font-mono); font-size: var(--text-2xs); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--pillar, var(--color-muted)); }
+.panel[data-pillar='product'] { --pillar: var(--color-product); }
+.panel[data-pillar='digital'] { --pillar: var(--color-digital); }
+.panel[data-pillar='intelligence'] { --pillar: var(--color-intelligence); }
+.panelTitle { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
+.panelText { color: var(--color-muted); font-size: var(--text-sm); }
+.panelFeatured { margin-top: var(--space-4); align-self: flex-start; }
+
+.panelLinks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-1) var(--space-6); list-style: none; align-content: start; }
+.panelLinks[data-count='8'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.panelLink {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3);
+  margin: 0 calc(-1 * var(--space-3));
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+.panelLink:hover { background: var(--color-bg-sunken); }
+.panelLinkLabel { display: inline-flex; align-items: center; gap: var(--space-2); font-weight: var(--weight-medium); font-size: var(--text-sm); }
+.panelLinkDesc { color: var(--color-muted); font-size: var(--text-xs); }
+
+@keyframes drop { from { opacity: 0; transform: translateY(-4px); } }

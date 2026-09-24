@@ -1,0 +1,8 @@
+.industries { list-style: none; display: grid; gap: var(--space-4); }
+@media (min-width: 40rem) { .industries { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .industries { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.industry { padding: var(--space-6); border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-surface); }
+.name { font-size: var(--text-lg); }
+.patterns { list-style: none; margin-top: var(--space-4); display: grid; gap: var(--space-2); }
+.patterns li { display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-ink-2); }
+.patterns li::before { content: ''; flex: none; width: 5px; height: 5px; margin-top: 0.55em; border-radius: var(--radius-pill); background: var(--color-intelligence); }
