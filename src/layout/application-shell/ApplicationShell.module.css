@@ -88,7 +88,7 @@
 .navLink:hover { color: var(--color-ink); background: var(--color-surface); }
 .navLink[aria-current='page'] { color: var(--color-ink); background: var(--color-surface-raised); box-shadow: inset 2px 0 0 var(--color-intelligence); }
 
-.slot { margin-top: var(--space-6); }
+.slot { margin-top: var(--space-6); min-width: 0; }
 .slot:empty { display: none; }
 
 .sidebarFoot { margin-top: auto; padding-top: var(--space-6); display: grid; gap: var(--space-4); }

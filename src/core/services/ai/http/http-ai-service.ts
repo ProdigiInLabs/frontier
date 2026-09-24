@@ -145,7 +145,8 @@ export function createHttpAIService(baseUrl: string): AIService {
       if (request.audio) {
         const form = new FormData();
         form.append('conversationId', request.conversationId);
-        form.append('audio', request.audio, 'turn.webm');
+        const ext = /mp4|aac/.test(request.audio.type) ? 'mp4' : /ogg/.test(request.audio.type) ? 'ogg' : 'webm';
+        form.append('audio', request.audio, `turn.${ext}`);
         body = form;
         json = false;
       } else {

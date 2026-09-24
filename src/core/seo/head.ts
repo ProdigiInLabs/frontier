@@ -2,8 +2,10 @@ import { config } from '@/core/config/env';
 import { site } from '@/content/site';
 import type { RouteEntry } from '@/routing/manifest';
 import { absoluteUrl, buildStructuredData } from './structured-data';
+import { formatTitle } from './title';
 
-export const BRAND_SUFFIX = ' | Prodigi';
+export { formatTitle };
+
 
 export interface HeadDescriptor {
   title: string;
@@ -12,9 +14,6 @@ export interface HeadDescriptor {
   jsonLd: string;
 }
 
-export function formatTitle(route: RouteEntry): string {
-  return route.page === 'home' ? route.meta.title : `${route.meta.title}${BRAND_SUFFIX}`;
-}
 
 /** Builds every head tag for a route. Shared by prerender (string) and client (DOM). */
 export function buildHead(route: RouteEntry, pathname: string): HeadDescriptor {

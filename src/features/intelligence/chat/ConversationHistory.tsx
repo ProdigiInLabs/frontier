@@ -1,4 +1,5 @@
 import { useId, useRef } from 'react';
+import { useShellSidebar } from '@/layout/application-shell/sidebar-slot';
 import { Icon } from '@/shared/components/Icon';
 import type { Conversation } from './types';
 import styles from './ConversationHistory.module.css';
@@ -11,16 +12,11 @@ interface Props {
   onNew: () => void;
 }
 
-/** Closes the off-canvas sidebar on small screens (the shell closes on Escape). */
-function closeOffCanvas() {
-  if (window.matchMedia('(min-width: 56rem)').matches) return;
-  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
-}
-
 /** Conversation history, rendered into the application shell sidebar. */
 export function ConversationHistory({ conversations, activeId, onSelect, onDelete, onNew }: Props) {
   const headingId = useId();
   const newRef = useRef<HTMLButtonElement>(null);
+  const { close: closeOffCanvas } = useShellSidebar();
 
   return (
     <section aria-labelledby={headingId} className={styles.history}>

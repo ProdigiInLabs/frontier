@@ -78,7 +78,7 @@ export default function ChatPage() {
               badges={<ModeBadge />}
               actions={
                 <>
-                  <a href="#about" className={styles.aboutLink}>
+                  <a href="#about" className={styles.aboutLink} aria-label="About this experience">
                     <Icon name="info" size={16} />
                     <span>About</span>
                   </a>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { config } from '@/core/config/env';
 import { appNav } from '@/content/navigation';
@@ -34,6 +34,7 @@ export function ApplicationShell() {
   const [slot, setSlot] = useState<HTMLDivElement | null>(null);
   const sidebarRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const sidebar = useMemo(() => ({ node: slot, close: () => setMenuPath(null) }), [slot]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -123,7 +124,7 @@ export function ApplicationShell() {
 
       <button type="button" className={styles.scrim} aria-hidden="true" tabIndex={-1} onClick={() => setMenuOpen(false)} />
 
-      <SidebarSlotContext.Provider value={slot}>
+      <SidebarSlotContext.Provider value={sidebar}>
         <main id="main" tabIndex={-1} className={styles.main} inert={menuOpen ? true : undefined}>
           <Outlet />
         </main>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 import { resolveRoute } from '@/routing/manifest';
+import { formatTitle } from './title';
 
 /**
  * Keeps <head> in sync on client-side navigation. The prerendered HTML
@@ -16,9 +17,12 @@ export function RouteHead() {
       isFirst.current = false;
       if (document.head.querySelector('[data-head="route"]')) return;
     }
+    const route = resolveRoute(pathname);
+    // Title first and synchronously: analytics page views and the route announcer read it.
+    document.title = formatTitle(route);
     let cancelled = false;
     void import('./head').then(({ applyHeadToDocument, buildHead }) => {
-      if (!cancelled) applyHeadToDocument(buildHead(resolveRoute(pathname), pathname));
+      if (!cancelled) applyHeadToDocument(buildHead(route, pathname));
     });
     return () => {
       cancelled = true;

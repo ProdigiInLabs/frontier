@@ -75,7 +75,7 @@ export function buildKnowledge(): KnowledgeDoc[] {
       title: capability.name,
       url: capability.to,
       category: 'Intelligence',
-      answer: `${capability.name}: ${capability.summary} Typical uses include ${capability.examples.join(', ').toLowerCase()}.`,
+      answer: `${capability.name}: ${capability.summary} Typical uses include ${capability.examples.join(', ')}.`,
       body: `${capability.name} ${capability.summary} ${capability.examples.join(' ')}`,
     });
   }
