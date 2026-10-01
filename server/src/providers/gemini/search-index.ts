@@ -49,13 +49,23 @@ async function buildIndex(): Promise<IndexedDoc[]> {
   return built;
 }
 
-/** Builds the index once, lazily, and reuses it for the life of the process. */
+/**
+ * Builds the index once, lazily, and reuses it for the life of the process.
+ * If the build fails (a transient Gemini error, a rate limit during cold
+ * start), the failed attempt is never cached — the next call retries from
+ * scratch instead of every request 503ing forever until the process restarts.
+ */
 async function getIndex(): Promise<IndexedDoc[]> {
   if (index) return index;
-  indexing ??= buildIndex().then((built) => {
-    index = built;
-    return built;
-  });
+  indexing ??= buildIndex()
+    .then((built) => {
+      index = built;
+      return built;
+    })
+    .catch((error: unknown) => {
+      indexing = null;
+      throw error;
+    });
   return indexing;
 }
 
