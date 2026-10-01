@@ -5,7 +5,9 @@ The Prodigi web platform: a premium corporate site, a technology showcase and in
 - **Marketing mode** — `/`, `/product`, `/digital`, `/intelligence`, `/solutions`, `/work`, `/about`, `/resources`, `/contact` and the capability pages.
 - **Product mode** — `/intelligence/chat`, `/intelligence/agents`, `/intelligence/search`, `/intelligence/voice`, `/demo/enterprise-ai`, inside a dedicated application shell.
 
-Every route is **prerendered to static HTML at build time**, then hydrated by React. No Node.js server is needed in production.
+Every route is **prerendered to static HTML at build time**, then hydrated by React. No Node.js server is needed to run the site — it works fully in demo mode.
+
+An optional backend in [`server/`](server) (Node.js + Google Gemini + MongoDB Atlas, deployed separately) replaces the demo engine with real AI: grounded chat and search, a tool-calling agent, and a true real-time, interruptible voice conversation. See [docs/BACKEND.md](docs/BACKEND.md).
 
 ## Quick start
 
@@ -83,5 +85,6 @@ npm run test:a11y    # axe-core (WCAG 2.1 AA) + console errors on every route, d
 ## Documentation
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — audit of the previous site, framework decision, structure, routing, design system, SEO/AEO/GEO.
-- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — build output and per-host setup.
-- [docs/AI-API.md](docs/AI-API.md) — the contract a production AI backend implements.
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — build output and per-host setup (frontend).
+- [docs/BACKEND.md](docs/BACKEND.md) — the optional backend: setup (MongoDB Atlas, Gemini), deployment (Render), what's real.
+- [docs/AI-API.md](docs/AI-API.md) — the contract between the frontend and a backend, demo or real, including the realtime voice protocol.

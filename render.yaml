@@ -1,0 +1,42 @@
+# Render Blueprint for the Prodigi backend (server/). Deploy: connect this
+# repo in the Render dashboard → "New +" → "Blueprint", or run
+# `render blueprint launch` with the Render CLI. See docs/BACKEND.md.
+#
+# Free tier notes: the service spins down after ~15 minutes of inactivity
+# and takes ~30-60s to wake on the next request (and the realtime voice
+# WebSocket needs that wake to finish before it can connect) — acceptable
+# for a showcase, not for guaranteed-always-on production traffic. Upgrade
+# the plan when that matters.
+services:
+  - type: web
+    name: prodigi-backend
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: server
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ALLOWED_ORIGINS
+        value: https://prodiginl.com,https://www.prodiginl.com
+      - key: GEMINI_TEXT_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_EMBEDDING_MODEL
+        value: text-embedding-004
+      - key: GEMINI_LIVE_MODEL
+        value: gemini-live-2.5-flash-preview
+      - key: GEMINI_VOICE_NAME
+        value: Kore
+      - key: MAX_VOICE_SESSIONS
+        value: 4
+      # Secrets — set these in the Render dashboard, never committed here.
+      - key: MONGODB_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false

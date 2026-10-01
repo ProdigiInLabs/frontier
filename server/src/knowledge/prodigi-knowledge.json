@@ -1,0 +1,469 @@
+{
+  "generatedAt": "2026-10-01T14:13:18.343Z",
+  "entity": {
+    "name": "Prodigi",
+    "legalName": "Prodigi Innovative Labs",
+    "acronym": "Product · Digital · Intelligence",
+    "category": "Product, Digital and Intelligence company",
+    "summary": "Prodigi helps businesses build digital products, modernize existing systems, strengthen their digital presence and introduce practical intelligence into the way they work.",
+    "definition": "Prodigi is a product, digital and intelligence company. It designs and engineers digital products, modernizes existing applications, improves how businesses are found and experienced online, and connects AI to the systems a business already uses.",
+    "principle": "Prodigi doesn’t start with technology. Prodigi starts with what the business is trying to accomplish.",
+    "audience": "Businesses, startups and enterprises",
+    "problem": "Building, modernizing and intelligently improving digital business systems.",
+    "capabilities": [
+      "Product Engineering",
+      "Product Modernization",
+      "Digital Transformation",
+      "Websites and E-commerce",
+      "SEO",
+      "AEO",
+      "GEO",
+      "AI Strategy",
+      "AI Integration",
+      "AI Automation",
+      "AI Agents",
+      "AI Chat",
+      "AI Assistants",
+      "AI Voice",
+      "AI Search"
+    ]
+  },
+  "pillars": [
+    {
+      "name": "Product",
+      "verb": "Build.",
+      "description": "Web, mobile and SaaS products — and the modernization of the ones you already have.",
+      "path": "/product"
+    },
+    {
+      "name": "Digital",
+      "verb": "Connect.",
+      "description": "Websites, e-commerce and visibility across search, answer engines and generative AI.",
+      "path": "/digital"
+    },
+    {
+      "name": "Intelligence",
+      "verb": "Understand and automate.",
+      "description": "AI chat, assistants, agents, voice, search and automation — connected to your systems.",
+      "path": "/intelligence"
+    }
+  ],
+  "intelligenceCapabilities": [
+    {
+      "name": "AI Chat",
+      "summary": "Conversational customer and employee experiences.",
+      "examples": [
+        "Customer support",
+        "Product discovery",
+        "FAQ",
+        "Knowledge assistants"
+      ],
+      "path": "/intelligence/chat"
+    },
+    {
+      "name": "AI Assistants",
+      "summary": "AI that helps people work.",
+      "examples": [
+        "Research",
+        "Documents",
+        "Reporting",
+        "Knowledge",
+        "Business insights"
+      ],
+      "path": "/intelligence/assistants"
+    },
+    {
+      "name": "AI Agents",
+      "summary": "AI that can reason and perform tasks.",
+      "examples": [
+        "Lead qualification",
+        "Research",
+        "Workflow execution",
+        "Data processing",
+        "Business automation"
+      ],
+      "path": "/intelligence/agents"
+    },
+    {
+      "name": "AI Voice",
+      "summary": "Voice-based intelligent experiences.",
+      "examples": [
+        "Customer support",
+        "Appointment handling",
+        "Lead qualification",
+        "Voice assistants"
+      ],
+      "path": "/intelligence/voice"
+    },
+    {
+      "name": "AI Search",
+      "summary": "Turn business data into useful answers.",
+      "examples": [
+        "Enterprise search",
+        "Semantic search",
+        "RAG",
+        "Product search",
+        "Knowledge retrieval"
+      ],
+      "path": "/intelligence/search"
+    },
+    {
+      "name": "AI Automation",
+      "summary": "Connect intelligence to business workflows.",
+      "examples": [
+        "Application",
+        "AI",
+        "Business data",
+        "Decision",
+        "Action"
+      ],
+      "path": "/intelligence/automation"
+    },
+    {
+      "name": "Enterprise Integration",
+      "summary": "Connect AI to the systems you already run.",
+      "examples": [
+        "APIs",
+        "CRM",
+        "ERP",
+        "Databases",
+        "Knowledge bases"
+      ],
+      "path": "/intelligence/integrations"
+    }
+  ],
+  "pages": [
+    {
+      "title": "Product engineering",
+      "path": "/product/engineering",
+      "lead": "Web and mobile applications, SaaS platforms and APIs — designed around how the product will grow, not just how it will demo.",
+      "definition": {
+        "question": "What is product engineering?",
+        "answer": "Product engineering is designing and building software as a product that will keep evolving — covering user experience, architecture, backend, infrastructure, security and delivery together — rather than delivering a one-off project. The goal is software that stays fast, safe and changeable as users and requirements grow."
+      },
+      "offerings": [
+        "Web applications: Complex, data-heavy interfaces in Angular or React with typed, testable architecture.",
+        "Mobile applications: React Native apps for iOS and Android with native integrations, deep linking and over-the-air release strategies.",
+        "SaaS platforms: Multi-tenant architecture, subscriptions, roles and permissions, dashboards and usage analytics.",
+        "API platforms: REST and event-driven APIs with versioning, authentication, rate limiting and documentation.",
+        "Backend engineering: Node.js and Python services, background jobs, scheduled processing and data pipelines.",
+        "Cloud architecture: Infrastructure sized to real load, with environments, secrets management and cost visibility.",
+        "Microservices: Service boundaries drawn around the business domain — only where they reduce complexity.",
+        "DevOps: CI/CD pipelines, containerization, automated testing and repeatable deployments.",
+        "Security: Authentication, authorization, input validation, dependency hygiene and least-privilege access.",
+        "Performance: Query and index optimization, caching strategy, bundle budgets and Core Web Vitals."
+      ]
+    },
+    {
+      "title": "Modernization",
+      "path": "/product/modernization",
+      "lead": "Most systems are worth more than their code suggests. We keep what works, replace what holds you back and move you forward without a risky big-bang rewrite.",
+      "definition": {
+        "question": "What is application modernization?",
+        "answer": "Application modernization is improving an existing system’s architecture, technology and user experience so it becomes easier to change, cheaper to run and ready to integrate — usually incrementally, by wrapping old parts in APIs and replacing them one at a time, rather than rewriting everything at once."
+      },
+      "offerings": [
+        "Architecture assessment: A clear map of what the system does, where it hurts and what is worth keeping.",
+        "API enablement: Put stable APIs in front of legacy components so new products and AI can use them.",
+        "Incremental migration: Replace components one at a time behind the same interface — the strangler pattern.",
+        "Framework and platform upgrades: Move to supported framework and runtime versions with test coverage as a safety net.",
+        "Cloud migration: Move workloads to managed infrastructure where it lowers cost or operational risk.",
+        "Data modernization: Schema redesign, indexing and migration of data into structures that serve current needs.",
+        "UX modernization: Redesign high-friction workflows without retraining everyone on a new product at once.",
+        "Performance recovery: Find and fix the bottlenecks that users and infrastructure bills are feeling."
+      ]
+    },
+    {
+      "title": "Websites & e-commerce",
+      "path": "/digital/web",
+      "lead": "Corporate sites, e-commerce and product marketing that load fast, explain clearly and move visitors toward a decision.",
+      "definition": {
+        "question": "What makes a business website effective?",
+        "answer": "An effective business website makes it obvious within seconds what the business does and for whom, answers the questions a buyer has in the order they have them, loads quickly on a phone, is accessible to everyone and gives every visitor a clear next step. Visual design supports those goals; it does not replace them."
+      },
+      "offerings": [
+        "Business websites: Clear positioning, structured content and a site that can grow with the business.",
+        "E-commerce: Product discovery, catalogue structure, checkout flow and integration with inventory and payments.",
+        "Landing pages: Focused pages for campaigns and launches, built to be measured and iterated.",
+        "UX/UI design: Information architecture, interaction design and a reusable design system.",
+        "Headless and static architectures: Pre-rendered, cache-friendly sites that can be hosted almost anywhere.",
+        "Accessibility: Semantic markup, keyboard support, contrast and screen-reader testing as standard.",
+        "Digital transformation: Move manual customer-facing processes — enquiries, bookings, onboarding — online."
+      ]
+    },
+    {
+      "title": "SEO",
+      "path": "/digital/seo",
+      "lead": "Technical foundations, content architecture and measurement that make a site easy to crawl, understand and rank.",
+      "definition": {
+        "question": "What is SEO?",
+        "answer": "SEO (search engine optimization) is the work of making a website easy for search engines to crawl, understand and rank for the searches that matter to a business. It combines technical foundations, content that answers real questions and authority earned through relevance."
+      },
+      "offerings": [
+        "Technical audit: Crawlability, indexation, rendering, redirects, canonicalization and site speed.",
+        "Information architecture: URL structure, internal linking and topic clusters that reflect how customers search.",
+        "Structured data: Organization, Service, Product, Breadcrumb and FAQ schema where they are accurate.",
+        "Content strategy: Pages planned around real search intent, not keyword density.",
+        "Core Web Vitals: Loading, interactivity and layout stability tuned on real devices.",
+        "Measurement: Search Console and analytics reporting tied to leads and revenue, not just rankings."
+      ]
+    },
+    {
+      "title": "AEO",
+      "path": "/digital/aeo",
+      "lead": "Answer engine optimization structures your expertise so featured snippets, voice assistants and AI answers can quote you directly.",
+      "definition": {
+        "question": "What is AEO (answer engine optimization)?",
+        "answer": "AEO (answer engine optimization) is structuring content so that answer engines — featured snippets, voice assistants and AI answers — can extract a direct, correct answer from it. It relies on question-led headings, concise definitions, consistent terminology and structured data."
+      },
+      "offerings": [
+        "Question research: Find the exact questions customers ask before they buy.",
+        "Answer-first content: Lead every section with a direct, self-contained answer, then add depth.",
+        "Definitions and glossaries: Define your category and terms clearly and consistently.",
+        "FAQ and HowTo structure: Structured Q&A with matching schema where it reflects real content.",
+        "Voice readiness: Short, speakable answers for voice assistant queries.",
+        "Internal linking: Connect answers to deeper pages so engines understand relationships."
+      ]
+    },
+    {
+      "title": "GEO",
+      "path": "/digital/geo",
+      "lead": "Generative engines compose answers from many sources. GEO makes sure your business is described correctly, consistently and citably.",
+      "definition": {
+        "question": "What is GEO (generative engine optimization)?",
+        "answer": "GEO (generative engine optimization) is making a business understandable and citable by generative AI systems that compose answers from many sources. It focuses on a clearly defined entity — who you are, what you do and for whom — described consistently, with factual content that models can trust and attribute."
+      },
+      "offerings": [
+        "Entity definition: One precise statement of who you are, your category, capabilities and audience.",
+        "Consistency audit: Align how your business is described across your site, profiles and listings.",
+        "Citable content: Factual, specific pages with clear claims that can be attributed to you.",
+        "Structured data: Organization, Service and relationship markup that makes facts machine-readable.",
+        "AI-readable summaries: Machine-friendly site summaries such as llms.txt alongside your sitemap.",
+        "Monitoring: Track how AI assistants currently describe you and correct gaps at the source."
+      ]
+    },
+    {
+      "title": "Growth & analytics",
+      "path": "/digital/marketing",
+      "lead": "Content, social, digital marketing and marketing automation — connected to analytics and conversion work, so effort goes where it pays back.",
+      "definition": {
+        "question": "What is conversion rate optimization?",
+        "answer": "Conversion rate optimization (CRO) is improving the share of visitors who take a meaningful action — an enquiry, a sign-up, a purchase — by finding where people hesitate or drop off, forming a hypothesis, changing the experience and measuring the result."
+      },
+      "offerings": [
+        "Content: Useful, specific content planned around what buyers need to decide.",
+        "Social media: Channel strategy and consistent publishing where your audience actually is.",
+        "Digital marketing: Paid and organic campaigns with clear targets and honest reporting.",
+        "Marketing automation: Lifecycle emails, lead routing and nurturing connected to your CRM.",
+        "Analytics: Event tracking, dashboards and attribution that answer real questions, with consent built in.",
+        "Conversion optimization: Funnel analysis, experiments and UX changes that remove friction."
+      ]
+    },
+    {
+      "title": "AI strategy",
+      "path": "/intelligence/ai-strategy",
+      "lead": "The business problem comes first. AI comes second. We help you find the few places where AI changes the outcome — and say so when it doesn’t.",
+      "definition": {
+        "question": "Where should a business start with AI?",
+        "answer": "Start with the business, not the model. List the decisions and repetitive tasks that cost the most time or money, check which have the data and risk tolerance for AI assistance, and pick one narrow, measurable use case. Prove it on quality, cost, security and reliability before expanding."
+      },
+      "offerings": [
+        "Opportunity mapping: Walk through workflows and find where language, judgement or scale are the bottleneck.",
+        "Use-case prioritization: Score opportunities on value, feasibility, data readiness and risk.",
+        "Architecture selection: Assistant, agent, search or automation — and which model and hosting fit.",
+        "Data readiness: Check that the knowledge and systems the AI needs are accessible and trustworthy.",
+        "Evaluation plan: Define how quality, cost, latency and safety will be measured before launch.",
+        "Roadmap: A sequenced plan from first prototype to production and scale."
+      ]
+    },
+    {
+      "title": "AI assistants",
+      "path": "/intelligence/assistants",
+      "lead": "Assistants that research, draft, summarize and report from your own knowledge — with people staying in control of the outcome.",
+      "definition": {
+        "question": "What is an AI assistant?",
+        "answer": "An AI assistant is an AI tool that helps a person do their own work — drafting, summarizing, researching, reporting or finding knowledge — while the person stays in control of the result. Assistants are usually grounded in a business’s own documents and data."
+      },
+      "offerings": [
+        "Research: Gather and compare information across sources and summarize what matters.",
+        "Documents: Draft, review and extract from contracts, proposals, policies and reports.",
+        "Reporting: Turn structured data into readable summaries and recurring reports.",
+        "Knowledge: Answer internal questions from handbooks, wikis and past work, with sources.",
+        "Business insights: Ask questions of business data in plain language."
+      ]
+    },
+    {
+      "title": "AI automation",
+      "path": "/intelligence/automation",
+      "lead": "Rules handle what is predictable. AI handles what needs judgement. People approve what carries risk. Automation connects all three to your systems.",
+      "definition": {
+        "question": "What is AI automation?",
+        "answer": "AI automation uses AI inside a business workflow to make or support a decision that previously needed a person — classifying a request, extracting data from a document, choosing the next step — and then triggers the action through existing systems."
+      },
+      "offerings": [
+        "Intake and triage: Classify and route emails, tickets, forms and enquiries.",
+        "Document processing: Extract structured data from invoices, orders, contracts and forms.",
+        "Lead handling: Enrich, qualify and route leads into the CRM with context.",
+        "Reporting: Assemble, summarize and distribute recurring reports.",
+        "Scheduled processing: Background jobs that monitor data and act on changes.",
+        "Human-in-the-loop approvals: AI proposes, a person approves, the system executes."
+      ]
+    },
+    {
+      "title": "Enterprise integration",
+      "path": "/intelligence/integrations",
+      "lead": "AI should not live separately from the business. It should read from and act through your applications, data and tools — with the same controls as everything else.",
+      "definition": {
+        "question": "What is AI integration?",
+        "answer": "AI integration is connecting an AI model to the applications, data and workflows a business already runs, so it can use real context and take real actions. The AI reaches systems such as a CRM, ERP, database or knowledge base through controlled APIs and returns answers or actions inside existing tools."
+      },
+      "offerings": [
+        "APIs: Internal and third-party APIs exposed to the AI as permissioned tools.",
+        "CRM: Customer history, deals and activities as context — and as actions.",
+        "ERP: Orders, inventory, finance and operations data.",
+        "Databases: Read-only, query-scoped access to operational and analytical data.",
+        "Business applications: Line-of-business apps via their APIs or a new integration layer.",
+        "E-commerce: Catalogue, orders, customers and fulfilment.",
+        "Internal tools: Ticketing, messaging, scheduling and project tools.",
+        "Documents and knowledge bases: Policies, manuals, contracts and wikis via retrieval (RAG)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "what-is-prodigi",
+      "question": "What is Prodigi?",
+      "answer": "Prodigi is a product, digital and intelligence company. The name combines the three things it works on: Product, Digital and Intelligence. Prodigi designs and engineers digital products, modernizes existing applications, improves how businesses are found and experienced online, and connects AI to the systems a business already uses."
+    },
+    {
+      "id": "what-does-prodigi-do",
+      "question": "What does Prodigi do?",
+      "answer": "Prodigi helps businesses build, improve, modernize, connect and automate. In practice that means product engineering (web, mobile, SaaS, APIs, cloud), digital experience and visibility (websites, e-commerce, SEO, AEO, GEO, analytics), and applied intelligence (AI strategy, chat, assistants, agents, voice, search, automation and enterprise AI integration)."
+    },
+    {
+      "id": "who-is-prodigi-for",
+      "question": "Who does Prodigi work with?",
+      "answer": "Prodigi works with businesses, startups and enterprises: founders turning an idea into a product, technology leaders modernizing or extending existing systems, business owners improving a digital business, marketing teams improving visibility, and teams that want to use AI but are not sure where it belongs."
+    },
+    {
+      "id": "how-is-prodigi-different",
+      "question": "How is Prodigi different from an AI agency or a web development company?",
+      "answer": "Prodigi treats product, digital and intelligence as one connected system rather than separate services. A product produces a digital experience, the experience produces data, data makes intelligence possible and intelligence enables automation. Prodigi can start at any of those stages, and it starts with the business problem rather than a particular technology."
+    },
+    {
+      "id": "what-is-prodigi-intelligence",
+      "question": "What is Prodigi Intelligence?",
+      "answer": "Prodigi Intelligence is Prodigi’s applied AI practice and the interactive experiences on this site. It covers AI strategy, AI chat, AI assistants, AI agents, AI voice, AI search, AI automation and enterprise AI integration — helping a business decide where AI belongs, then designing, connecting and operating it."
+    },
+    {
+      "id": "what-is-ai-integration",
+      "question": "What is AI integration?",
+      "answer": "AI integration is connecting an AI model to the applications, data and workflows a business already runs, so the AI can use real context and take real actions. Instead of a standalone chatbot, an integrated AI reads from systems such as a CRM, ERP, database or knowledge base through controlled APIs, and returns answers or actions inside the tools people already use."
+    },
+    {
+      "id": "how-does-ai-integration-work",
+      "question": "How does AI integration work?",
+      "answer": "AI integration works in layers. A user or application sends a request to an orchestration layer; the orchestration layer calls an AI model with instructions and permitted tools; the model uses those tools — APIs, database queries or retrieval over documents (RAG) — to fetch business context; the result is checked against rules and returned as an answer or passed on as an action. Credentials, permissions and logging stay on the server side."
+    },
+    {
+      "id": "what-is-an-ai-agent",
+      "question": "What is an AI agent?",
+      "answer": "An AI agent is software that uses an AI model to plan and carry out a multi-step task: it interprets a goal, decides which steps and tools it needs, calls those tools, evaluates the results and continues until the task is done or it needs a human. Good agents work within explicit permissions and show their steps so people can review them."
+    },
+    {
+      "id": "what-is-an-ai-assistant",
+      "question": "What is an AI assistant?",
+      "answer": "An AI assistant is an AI tool that helps a person do their own work — drafting, summarizing, researching, reporting or finding knowledge — while the person stays in control of the outcome. Assistants are usually grounded in a business’s own documents and data, and they are the most common first step into applied AI."
+    },
+    {
+      "id": "what-is-an-ai-chatbot",
+      "question": "What is an AI chatbot?",
+      "answer": "An AI chatbot is a conversational interface that uses a language model to understand questions in natural language and respond helpfully. Unlike scripted chatbots, it can handle open-ended questions; when it is grounded in approved content and connected to business systems, it can answer accurately and hand over to a person when it should."
+    },
+    {
+      "id": "what-is-ai-voice",
+      "question": "What is AI voice?",
+      "answer": "AI voice is a spoken interface to an AI system: speech is transcribed, understood by a language model, answered or acted on, and spoken back with synthesized speech. It is used for customer support lines, appointment handling, lead qualification and hands-free assistants."
+    },
+    {
+      "id": "what-is-ai-search",
+      "question": "What is AI search?",
+      "answer": "AI search finds information by meaning rather than exact keywords, then uses a language model to turn the most relevant passages into a direct answer with its sources. It is typically built with semantic (vector) search and retrieval-augmented generation (RAG) over a business’s own documents, products or knowledge."
+    },
+    {
+      "id": "what-is-rag",
+      "question": "What is RAG (retrieval-augmented generation)?",
+      "answer": "Retrieval-augmented generation (RAG) is a pattern where relevant information is retrieved from a trusted source — documents, a database, a product catalogue — and given to a language model at the moment it answers. It keeps answers grounded in current business data and makes it possible to show where each answer came from."
+    },
+    {
+      "id": "what-is-ai-automation",
+      "question": "What is AI automation?",
+      "answer": "AI automation uses AI inside a business workflow to make or support a decision that previously needed a person — classifying a request, extracting data from a document, choosing the next step — and then triggers the action through existing systems. Rules handle what is predictable; AI handles what needs judgement; people approve what carries risk."
+    },
+    {
+      "id": "what-is-enterprise-ai",
+      "question": "What is enterprise AI?",
+      "answer": "Enterprise AI is AI deployed across an organization’s real systems with the controls a business needs: access permissions, data governance, security, audit trails, cost management and reliability monitoring. The model is only one part; most of the work is integrating it safely with existing applications and data."
+    },
+    {
+      "id": "where-to-start-with-ai",
+      "question": "Where should a business start with AI?",
+      "answer": "Start with the business, not the model. List the decisions and repetitive tasks that cost the most time or money, check which ones have the data and the tolerance for AI assistance, and pick one narrow, measurable use case. Prove it works on quality, cost, security and reliability before expanding."
+    },
+    {
+      "id": "does-every-business-need-ai",
+      "question": "Does every business process need AI?",
+      "answer": "No. Many problems are better solved with a clearer process, a better interface or ordinary automation. AI is worth using where a task needs language understanding, judgement over unstructured information, or personalization at a scale people cannot provide. Prodigi recommends against AI where a simpler solution works."
+    },
+    {
+      "id": "is-ai-data-secure",
+      "question": "How is business data kept secure when using AI?",
+      "answer": "By keeping AI behind a backend the business controls. Provider keys and credentials live on the server, never in a browser or app; the AI only reaches data through permissioned APIs; sensitive fields can be filtered before they reach a model; and requests are logged for audit. Model and hosting choices can follow data-residency requirements."
+    },
+    {
+      "id": "which-ai-models",
+      "question": "Which AI models does Prodigi work with?",
+      "answer": "Prodigi designs model-independent architectures, so the model can be chosen per use case and changed later. Solutions can use models from providers such as Anthropic (Claude), OpenAI, Google (Gemini) or Azure AI, or open models, depending on quality, cost, latency and data requirements."
+    },
+    {
+      "id": "what-is-seo",
+      "question": "What is SEO?",
+      "answer": "SEO (search engine optimization) is the work of making a website easy for search engines to crawl, understand and rank for the searches that matter to a business. It covers technical foundations (speed, structure, indexability), content that answers real questions, and authority built through relevance and links."
+    },
+    {
+      "id": "what-is-aeo",
+      "question": "What is AEO (answer engine optimization)?",
+      "answer": "AEO (answer engine optimization) is structuring content so that answer engines — featured snippets, voice assistants and AI answers — can extract a direct, correct answer from it. It relies on clear question-and-answer content, concise definitions, consistent terminology and structured data such as FAQ schema."
+    },
+    {
+      "id": "what-is-geo",
+      "question": "What is GEO (generative engine optimization)?",
+      "answer": "GEO (generative engine optimization) is making a business understandable and citable by generative AI systems that compose answers from many sources. It focuses on a clearly defined entity — who you are, what you do, for whom — described consistently across your site and the web, with factual, well-structured content that models can trust."
+    },
+    {
+      "id": "seo-vs-aeo-vs-geo",
+      "question": "What is the difference between SEO, AEO and GEO?",
+      "answer": "SEO helps you rank in search results, AEO helps you become the direct answer, and GEO helps you be understood and cited by generative AI. They share the same foundation — a fast, well-structured site with trustworthy content — and are most effective when planned together."
+    },
+    {
+      "id": "how-does-an-engagement-start",
+      "question": "How does working with Prodigi start?",
+      "answer": "With a conversation about what you are trying to accomplish. Prodigi then proposes the smallest useful first step — a discovery sprint, a prototype, an audit or a scoped build — with clear outcomes, before any larger commitment."
+    },
+    {
+      "id": "can-prodigi-work-with-existing-systems",
+      "question": "Can Prodigi work with our existing technology?",
+      "answer": "Yes. Most work involves existing systems: extending an application, modernizing it step by step, integrating it with other platforms through APIs, or connecting AI to it. Prodigi assesses what is worth keeping before recommending anything is replaced."
+    },
+    {
+      "id": "how-much-does-it-cost",
+      "question": "How much does a project cost?",
+      "answer": "It depends on scope, and Prodigi does not publish fixed prices for custom work. After an initial conversation, Prodigi proposes a scoped first phase with a clear estimate, so the cost of the next decision is always known."
+    },
+    {
+      "id": "are-the-demos-real",
+      "question": "Are the AI demos on this site connected to a real AI model?",
+      "answer": "Not by default. The chat, agent, search, voice and integration experiences run in demo mode on a local engine that uses this website’s own content and scripted steps, so they work without a backend and never touch real systems. The interfaces are built on the same service contracts a production AI backend would implement."
+    }
+  ]
+}

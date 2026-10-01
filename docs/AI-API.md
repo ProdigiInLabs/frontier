@@ -1,6 +1,6 @@
 # AI API contract
 
-The AI experiences talk to one interface. A backend that implements the four endpoints below replaces the demo engine with no UI changes.
+The AI experiences talk to one interface. This contract is implemented twice: the **demo engine** (default, no backend) and the **real backend** in `server/` (Node.js + Gemini + MongoDB — see [docs/BACKEND.md](BACKEND.md) for what it does and how to deploy it).
 
 ```
 UI (features/intelligence/*)
@@ -11,19 +11,21 @@ AIService interface           src/core/services/ai/types.ts
   ↓                    ↘
 HttpAIService (API mode)   DemoAIService (demo mode)
   ↓                         src/core/services/ai/demo/  — local, no network
-Backend AI service  →  model provider (Claude, OpenAI, Gemini, Azure AI, …), tools, RAG, business systems
+server/  (real backend)  →  Google Gemini (chat, embeddings, Live API), MongoDB Atlas
 ```
+
+Realtime voice is a second, specialized channel alongside `aiClient`: a persistent WebSocket (`wss://…/ws/voice`), because continuous duplex audio doesn't fit a request/response client. See [Realtime voice](#realtime-voice-wsvoice) below and `src/features/intelligence/voice/realtime/`.
 
 Adapters are loaded lazily and separately: the demo engine is never downloaded in API mode, and neither is downloaded on marketing pages.
 
-## Switching to a real backend
+## Switching to the real backend
 
 ```bash
 VITE_DEMO_MODE=false
-VITE_API_URL=https://api.prodiginl.com
+VITE_API_URL=https://prodigi-backend.onrender.com   # or wherever you deployed server/
 ```
 
-If `VITE_API_URL` is empty the site stays in demo mode regardless of `VITE_DEMO_MODE`.
+If `VITE_API_URL` is empty the site stays in demo mode regardless of `VITE_DEMO_MODE`. See [docs/BACKEND.md](BACKEND.md) for one-time setup (MongoDB Atlas, a Gemini API key, deploying `server/`).
 
 ## Security rules
 
@@ -91,9 +93,34 @@ Response (`SearchResponse`):
 
 Either multipart (`conversationId`, `audio` — WebM/Opus from `MediaRecorder`) or JSON `{ "conversationId": "…", "transcript": "…" }`.
 
-Response (`VoiceTurnResponse`): `{ "transcript": "…", "reply": "…", "audioUrl": "https://…/reply.mp3" }` (`audioUrl` optional).
+Response (`VoiceTurnResponse`): `{ "transcript": "…", "reply": "…", "audioUrl": "https://…/reply.mp3" }` (`audioUrl` optional — the real backend omits it and the client falls back to browser speech synthesis; see [Realtime voice](#realtime-voice-wsvoice) for the primary, fully-spoken experience).
 
 The browser only requests microphone access in API mode, after the visitor presses the microphone button.
+
+## Realtime voice (`wss://…/ws/voice`)
+
+The primary voice experience — continuous, interruptible, phone-call-style — bypasses the request/response pattern above entirely. `src/features/intelligence/voice/realtime/useRealtimeVoice.ts` opens one WebSocket per call and streams audio both directions for its duration, closing it when the visitor ends the call.
+
+**Connect:** `wss://<backend>/ws/voice?conversationId=<id>` (`VITE_WS_URL`, or auto-derived from `VITE_API_URL` — see `src/core/config/env.ts`).
+
+**Client → server:**
+- Binary frames: raw PCM16 mono audio, 16kHz, in ~100ms chunks (captured and resampled by an AudioWorklet — `src/features/intelligence/voice/realtime/pcm-worklet.ts`).
+- Text (JSON) control frames: `{ "type": "end" }` (end the call) or `{ "type": "text" }` (send a typed message mid-call).
+
+**Server → client:**
+- Binary frames: raw PCM16 mono audio, 24kHz (the model's spoken reply — play immediately for lowest latency).
+- Text (JSON) frames:
+  ```json
+  { "type": "ready" }
+  { "type": "transcript", "role": "user" | "assistant", "text": "…", "final": false }
+  { "type": "interrupted" }
+  { "type": "turn_complete" }
+  { "type": "error", "code": "rate_limited", "message": "…" }
+  ```
+
+**Interruption (barge-in):** if the visitor starts speaking while the model's reply is still arriving, the server sends `{"type":"interrupted"}`; the client must stop playback and discard any queued audio immediately (`RealtimePlaybackQueue.clear()`), the same way a real phone call works.
+
+The server-side relay (`server/src/ws/voice-gateway.ts`) holds the only Gemini API key and proxies to Google's Live API — the browser never talks to Gemini directly. See the verification caveat in [docs/BACKEND.md](BACKEND.md#️-a-note-on-the-realtime-voice-relay) about this protocol's provenance.
 
 ## Status codes the UI understands
 
