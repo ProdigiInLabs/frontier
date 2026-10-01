@@ -33,3 +33,23 @@ jobs:
         run: |
           npx playwright-core install --with-deps chromium
           npm run test:a11y
+
+  verify-server:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - name: Verify committed knowledge base matches site content
+        run: npm run check:knowledge
+      - run: npm run build

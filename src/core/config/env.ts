@@ -14,6 +14,13 @@ export interface AppConfig {
   demoMode: boolean;
   /** Backend base URL, without trailing slash. Empty in demo mode. */
   apiUrl: string;
+  /**
+   * Realtime voice relay (wss://…/ws/voice). Empty in demo mode, or when no
+   * backend is configured. Auto-derived from apiUrl unless VITE_WS_URL
+   * overrides it (e.g. the realtime relay is hosted separately from the
+   * REST API).
+   */
+  realtimeVoiceUrl: string;
   contactEndpoint: string;
   contactEmail: string;
   analytics: {
@@ -46,12 +53,28 @@ function httpsUrlOrEmpty(value: string | undefined): string {
 }
 
 const apiUrl = httpsUrlOrEmpty(env.VITE_API_URL);
+const demoMode = flag(env.VITE_DEMO_MODE, true) || apiUrl === '';
+
+function resolveRealtimeVoiceUrl(): string {
+  if (demoMode) return '';
+  if (env.VITE_WS_URL) {
+    try {
+      const url = new URL(env.VITE_WS_URL);
+      return url.protocol === 'wss:' || url.hostname === 'localhost' ? url.toString().replace(/\/+$/, '') : '';
+    } catch {
+      return '';
+    }
+  }
+  // wss://<api host>/ws/voice — the backend serves the relay on the same host as the REST API.
+  return `${apiUrl.replace(/^https:/, 'wss:').replace(/^http:/, 'ws:')}/ws/voice`;
+}
 
 export const config: AppConfig = {
   siteUrl: trimSlash(env.VITE_SITE_URL || 'https://prodiginl.com'),
   // Demo mode cannot be disabled without an API to talk to.
-  demoMode: flag(env.VITE_DEMO_MODE, true) || apiUrl === '',
+  demoMode,
   apiUrl,
+  realtimeVoiceUrl: resolveRealtimeVoiceUrl(),
   contactEndpoint: httpsUrlOrEmpty(env.VITE_CONTACT_ENDPOINT),
   contactEmail: env.VITE_CONTACT_EMAIL || 'info@prodiginl.com',
   analytics: {
