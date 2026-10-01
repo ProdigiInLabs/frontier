@@ -30,7 +30,7 @@ If `VITE_API_URL` is empty the site stays in demo mode regardless of `VITE_DEMO_
 ## Security rules
 
 - **Provider API keys never reach the browser.** The frontend has no secrets; every `VITE_*` value is public.
-- The backend authenticates the caller (session cookie set by the backend, `credentials: 'include'`), applies rate limits and logs requests.
+- There is no session auth today — requests are anonymous, same-origin credentials only (`fetch`'s default). The backend applies rate limits and logs requests regardless. If session auth is added later, see the note in `src/core/services/ai/http/http-ai-service.ts`: both the client's `credentials` mode and the backend's CORS `credentials`/origin config must change together, or every cross-origin request breaks with a CORS error.
 - Tools exposed to a model are least-privilege; actions with consequences require human approval server-side.
 - Error responses must not include stack traces or provider payloads. The UI maps status codes to friendly messages and never renders error bodies.
 

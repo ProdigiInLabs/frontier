@@ -17,8 +17,12 @@ import type {
  *   POST /api/ai/search  → JSON SearchResponse
  *   POST /api/ai/voice   → JSON VoiceTurnResponse (multipart when audio is sent)
  *
- * The browser never holds provider credentials. Session auth, if added,
- * rides on httpOnly cookies (credentials: 'include' + CORS on the backend).
+ * The browser never holds provider credentials. There is no session auth
+ * today, so requests are same-origin credentials only. If session auth is
+ * added later (httpOnly cookies), both sides change together: this file to
+ * `credentials: 'include'`, and the backend's CORS to `credentials: true`
+ * with an exact Access-Control-Allow-Origin (never '*') — doing only one
+ * side breaks every cross-origin request with a CORS error.
  */
 
 const TIMEOUT_MS = 60_000;
@@ -43,7 +47,7 @@ async function post(baseUrl: string, path: string, body: BodyInit, options: Call
       ...(json ? { 'Content-Type': 'application/json' } : {}),
     },
     body,
-    credentials: 'include',
+    credentials: 'same-origin',
     signal: withTimeout(options.signal),
   });
   if (!response.ok) throw errorForStatus(response.status);

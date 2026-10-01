@@ -81,7 +81,7 @@ Optional repository **variables** (public values): `VITE_API_URL`, `VITE_DEMO_MO
 All configuration is build-time (`VITE_*`) and public. Set variables in the host's build settings or a `.env.production.local` file:
 
 - Demo only (default): nothing to set.
-- Real AI backend: `VITE_DEMO_MODE=false` and `VITE_API_URL=https://api.example.com`. The backend must allow CORS from the site origin (with credentials, if it uses session cookies).
+- Real AI backend: `VITE_DEMO_MODE=false` and `VITE_API_URL=https://api.example.com`. The backend must allow CORS from the site's exact origin (`ALLOWED_ORIGINS` — see `server/.env.example`). There's no session auth today, so this doesn't need `credentials: true`; see docs/AI-API.md's security rules if that changes later.
 - Contact endpoint: `VITE_CONTACT_ENDPOINT=https://…` (receives JSON). Without it the form composes an email to `VITE_CONTACT_EMAIL`.
 
 ## Local production preview
