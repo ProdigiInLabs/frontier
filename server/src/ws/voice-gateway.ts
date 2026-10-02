@@ -164,10 +164,15 @@ function handleConnection(ws: WebSocket, request: IncomingMessage): void {
           if (content?.turnComplete) send(ws, { type: 'turn_complete' });
         },
         onerror: (event) => {
-          logger.error({ conversationId, message: event.message }, 'Gemini Live error');
+          logger.error({ conversationId, message: event.message, err: event.error }, 'Gemini Live error');
           send(ws, { type: 'error', code: 'unavailable' });
         },
-        onclose: () => {
+        onclose: (event) => {
+          // Gemini can end the upstream session without ever calling onerror
+          // (a quota/policy close, an idle timeout, a rejected config) — log
+          // whatever the close frame carries so an unexplained call drop is
+          // diagnosable from server logs alone.
+          logger.info({ conversationId, code: event.code, reason: event.reason, wasClean: event.wasClean }, 'Gemini Live session closed');
           if (ws.readyState === WebSocket.OPEN) ws.close();
           release();
         },
