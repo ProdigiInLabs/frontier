@@ -20,7 +20,7 @@ const schema = z.object({
   MONGODB_URI: z.string().min(1, 'MONGODB_URI is required — see docs/BACKEND.md for the free Atlas setup steps.'),
   GEMINI_API_KEY: z.string().min(1, 'GEMINI_API_KEY is required — get a free key at https://aistudio.google.com/apikey'),
   GEMINI_TEXT_MODEL: z.string().default('gemini-2.5-flash'),
-  GEMINI_EMBEDDING_MODEL: z.string().default('text-embedding-004'),
+  GEMINI_EMBEDDING_MODEL: z.string().default('gemini-embedding-001'),
   GEMINI_LIVE_MODEL: z.string().default('gemini-live-2.5-flash-preview'),
   GEMINI_VOICE_NAME: z.string().default('Kore'),
   MAX_VOICE_SESSIONS: z.coerce.number().int().positive().default(4),
