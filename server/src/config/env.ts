@@ -21,7 +21,7 @@ const schema = z.object({
   GEMINI_API_KEY: z.string().min(1, 'GEMINI_API_KEY is required — get a free key at https://aistudio.google.com/apikey'),
   GEMINI_TEXT_MODEL: z.string().default('gemini-2.5-flash'),
   GEMINI_EMBEDDING_MODEL: z.string().default('gemini-embedding-001'),
-  GEMINI_LIVE_MODEL: z.string().default('gemini-live-2.5-flash-preview'),
+  GEMINI_LIVE_MODEL: z.string().default('gemini-3.8-live'),
   GEMINI_VOICE_NAME: z.string().default('Kore'),
   MAX_VOICE_SESSIONS: z.coerce.number().int().positive().default(4),
 });
